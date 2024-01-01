@@ -20,9 +20,9 @@ const Hero = () => {
           </div> 
           <span className="testimonal-wrapper testimonial">
             <p>
-              <span className="text-redprimary">\"</span>
+              <span className="text-redprimary">&quot;</span>
                The barbers listen to and execute your needs, and are skilled with ANY type of hair.
-              <span className="text-redprimary">\"</span>
+              <span className="text-redprimary">&quot;</span>
             </p>
           </span>
       </div>

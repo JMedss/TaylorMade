@@ -27,9 +27,9 @@ const Testimonials = (props) => {
                     <h4 className='text-white'>{props.reviews[0][currentIndex].name}</h4>
                     <TestimonialStars />
                     <p className='max-w-[500px] text-center text-white'>
-                      <span className='text-redprimary'>"</span>
+                      <span className='text-redprimary'>&quot;</span>
                         {props.reviews[0][currentIndex].review}
-                      <span className='text-redprimary'>"</span>
+                      <span className='text-redprimary'>&quot;</span>
                     </p>
                   </div>
             </div>
