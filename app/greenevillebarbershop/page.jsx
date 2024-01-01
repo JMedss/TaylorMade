@@ -35,9 +35,9 @@ const Greeneville = () => {
 
   const gvReviews = [
         { id: 1, name: "Felissa Hale", review: "From the moment you walk in the door you are greeted and you feel welcomed. VERY professional and comfortable atmosphere. GREAT place for all types of cuts for men, women and children! 5 STARS HANDS DOWN! Go check them out, you will come out with a smile" },
-        { id: 2, name: "Davion Woodman", review: "this is the best barber shop in town with the top-notch barbers. They have the best conversations in the highest skill sets I’ve seen in barbershops.  And they treat you like family." },
+        { id: 2, name: "Davion Woodman", review: "this is the best barber shop in town with the top-notch barbers. They have the best conversations in the highest skill sets Ive seen in barbershops.  And they treat you like family." },
         { id: 3, name: "Keith Sanchez", review: "Hands down the best barbershop experience in my 36 years, great customer care, and the owner Micah actually takes care of all his customers on and off the clock! Definitely recommend both locations!!!" },
-        { id: 4, name: "Jessica Robbins", review: "We’ve always had a great experience at TaylorMade. Toddler haircuts aren’t easy but they are always very patient and kind. My little guy always leaves looking sharp. It doesn’t hurt that it’s next to Creamy Cup either" },
+        { id: 4, name: "Jessica Robbins", review: "We’ve always had a great experience at TaylorMade. Toddler haircuts arent easy but they are always very patient and kind. My little guy always leaves looking sharp. It does not hurt that it is next to Creamy Cup either" },
         { id: 5, name: "Nic Bristol", review: "The environment of the barbershop is electric. With a great soon as you walk through the door. With experienced barbers In each chair." }
       ]
 

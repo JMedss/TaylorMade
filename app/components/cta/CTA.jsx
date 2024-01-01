@@ -36,9 +36,9 @@ const CTA = (props) => {
                </div>
             </div>
                <div className="words-wrapper flex flex-col items-center mt-[120px]">
-                    <p className="text-center mb-[24px]">Great news! You no longer have to search best barbershop near me. It's time to take the next step towards your perfect haircut. </p>
-                    <p className="text-center mb-[24px]">Don't miss out - secure your spot with our highly skilled barbers. Our appointments fill up quickly.</p>
-                    <p className="text-center mb-[24px]">We can't wait to welcome you to our chair.</p>
+                    <p className="text-center mb-[24px]">Great news! You no longer have to search best barbershop near me. It is time to take the next step towards your perfect haircut. </p>
+                    <p className="text-center mb-[24px]">Do not miss out - secure your spot with our highly skilled barbers. Our appointments fill up quickly.</p>
+                    <p className="text-center mb-[24px]">We can not wait to welcome you to our chair.</p>
                </div>
                <button
             className='bg-redprimary w-[60vw] max-w-[350px] text-white py-2 hover:bg-redprimary/80 transition-all outline-black dark:outline-white'

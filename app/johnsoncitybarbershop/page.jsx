@@ -26,11 +26,11 @@ const JohnsonCityBarberShop = () => {
   ]
   
   const jcReviews = [
-    { id: 1, name: "Doug Williams Jr", review: "Hands down the best shop in the city. Coming from Houston, I’ve visited several different shops since moving to JC. Without question the best in the city. Everyone is extremely personable and welcoming. You can tell the owner really cares about his employees. Not a single bad thing to say about the experience" },
+    { id: 1, name: "Doug Williams Jr", review: "Hands down the best shop in the city. Coming from Houston, Ive visited several different shops since moving to JC. Without question the best in the city. Everyone is extremely personable and welcoming. You can tell the owner really cares about his employees. Not a single bad thing to say about the experience" },
     { id: 2, name: "Michael Henebry", review: "The barbershop itself is excellent with great services and prices.  I have had my haircut by many of the staff there and have been pleased every time.  Kelamy is amazing, both professional and skilled.  I would recommend anyone to go here for their hairstyling needs." },
     { id: 3, name: "Shelli Fields", review: "Will ALWAYS take my son here. The atmosphere is warm and welcoming from the time you walk in. The barbers listen to and execute your needs, and are skilled with ANY type of hair. Plus, the owner genuinely cares about his clients and community! Definitely reccomend!" },
     { id: 4, name: "Miranda Russell", review: "Love this barber shop and the people here!! The best atmosphere! Kids are so comfortable. Adults feel heard. And everyone leaves looking amazing!!" },
-    { id: 5, name: "Jaylon Wells", review: "Best Barber Shop in the area by far!! Great with my son, Super nice staff, and great atmosphere!! You can’t go wrong by going here!" }
+    { id: 5, name: "Jaylon Wells", review: "Best Barber Shop in the area by far!! Great with my son, Super nice staff, and great atmosphere!! You cant go wrong by going here!" }
   ]
 
   const questions = [

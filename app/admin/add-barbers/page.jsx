@@ -6,7 +6,7 @@ import Popup from "@/app/components/cms/Popup"
 import axios from "axios"
 import EditPopup from "@/app/components/cms/EditPopup"
 
-export default function addBarbers() {
+export default function AddBarbers() {
   const session = useSession()
   const router = useRouter()
   const [active, setActive] = useState(false)

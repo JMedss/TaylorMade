@@ -13,7 +13,7 @@ const FAQ = (props) => {
             />
         </div>
         <div className="container flex flex-col items-center">
-            <h2 className="text-center z-20 mb-[120px]">The <span className="abrilh2 z-20">Barber Shop's</span> Frequently Asked Questions</h2>
+            <h2 className="text-center z-20 mb-[120px]">The <span className="abrilh2 z-20">Barber Shops</span> Frequently Asked Questions</h2>
             <div className="card-wrapper w-[100%] m-auto bg-black/50 shadow-lg flex flex-col py-12 px-6 lg:relative lg:z-20 lg:w-[60%]">
                 {questions.map((question) => (
                     <div key={question.id} className="flex flex-col gap-4">

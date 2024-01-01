@@ -11,7 +11,7 @@ const Privacy = () => {
               <h4 className='mt-12'>Information We Collect and Use</h4>
               <p>We collect and use your personal information primarily to manage and update your appointments. We may also use your information to send you relevant updates and promotions.</p>
               <h4 className='mt-12'>Third-Party Partnerships</h4>
-              <p>We've partnered with <Link href="https://www.newgendigitalmedia.com" className="text-redprimary">NewGen Digital Media</Link> to provide our website and booking software. Your information may be stored and processed by NewGen Digital Media solely for the purpose of providing these services. </p>
+              <p>We have partnered with <Link href="https://www.newgendigitalmedia.com" className="text-redprimary">NewGen Digital Media</Link> to provide our website and booking software. Your information may be stored and processed by NewGen Digital Media solely for the purpose of providing these services. </p>
               <h4 className='mt-12'>Data Security</h4>
               <p>We employ security measures to safeguard your information from unauthorized access, disclosure, alteration, or destruction. Your data is stored on our servers and those of our trusted partners.</p>
               <h4 className='mt-12'>Your Rights</h4>
