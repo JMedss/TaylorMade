@@ -2,6 +2,9 @@
   "name": "taylormade",
   "version": "0.1.0",
   "private": true,
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,15 +12,35 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.1.1",
+    "@mui/material": "^5.15.0",
+    "@mui/x-date-pickers": "^6.18.4",
+    "@tailwindcss/forms": "^0.5.7",
+    "@vis.gl/react-google-maps": "^0.4.1",
+    "axios": "^1.6.2",
+    "dayjs": "^1.11.10",
+    "dayjs-plugin-utc": "^0.1.2",
+    "framer-motion": "^10.16.5",
+    "next": "^14.0.4",
+    "next-auth": "^4.24.5",
+    "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.3"
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^4.12.0",
+    "resend": "^2.0.0",
+    "twilio": "^4.20.0"
   },
   "devDependencies": {
+    "@prisma/client": "^5.7.1",
     "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
     "eslint": "^8",
-    "eslint-config-next": "14.0.3"
+    "eslint-config-next": "14.0.3",
+    "postcss": "^8",
+    "prisma": "^5.7.1",
+    "tailwindcss": "^3.3.0"
   }
 }
