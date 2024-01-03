@@ -10,7 +10,7 @@ const BarbersMain = (props) => {
   const location = props.location
 
   async function getBarbers() {
-    const res = await fetch('http://taylormade.com/api/getBarbers', {
+    const res = await fetch('https://taylormade.com/api/getBarbers', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
