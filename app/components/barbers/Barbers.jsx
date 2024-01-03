@@ -1,21 +1,42 @@
-import React from 'react'
-import prisma from '@/app/libs/prismadb'
+"use client"
+import { useState, useEffect } from 'react'
 import NoBarbers from './NoBarbers'
 import BarberSection from './BarberSection'
 
 
-const BarbersMain = async (props) => {
-    const location = props.location
-    const barbers = await prisma.barber.findMany({
-        where: {
-            location: location
-        }
+
+const BarbersMain = (props) => {
+  const [barbers, setBarbers] = useState([])
+  const location = props.location
+
+  async function getBarbers() {
+    const res = await fetch('http://localhost:3000/api/getBarbers', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }, 
+      cache: 'no-store'
     })
+
+    if (!res.ok) {
+      throw new Error('Failed to fetch data')
+    }
+    console.log("fetching data")
+    const data = await res.json()
+    setBarbers(data)
+  }
+
+  useEffect(() => {
+    getBarbers()
+  }, [])
+
+  console.log(barbers)
+
 
   return (
     <section id='barbers' className='bg-white dark:bg-darkprimary w-screen h-full relative'>
         <NoBarbers barbers={barbers} />
-        <BarberSection barbers={barbers} location={location}/>
+        <BarberSection barbers={barbers} location={location} />
     </section>
   )
 }

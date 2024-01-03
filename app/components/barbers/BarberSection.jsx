@@ -9,14 +9,17 @@ const BarberSection = (props) => {
     const [noBarbers, setNoBarbers] = useState(true)
     const [barberSelected, setBarberSelected] = useState(false)
     const [selectedBarberId, setSelectedBarberId] = useState()
+    const [activeBarbers, setActiveBarbers] = useState()
     const barbers = props.barbers
 
     useEffect(() => {
         if (barbers.length > 0) {
             setNoBarbers(false)
+            const filteredBarbers = barbers.filter(barber => barber.location === location)
+            setActiveBarbers(filteredBarbers)
         }
-    }, [])
-
+    }, [barbers])
+    console.log(activeBarbers)
     const handleBarberSelected = (barberId) => {
         setBarberSelected(true)
         setSelectedBarberId(barberId)
@@ -25,7 +28,7 @@ const BarberSection = (props) => {
     <div className={`${noBarbers ? "hidden" : "flex" } flex-col items-center`}>
             <h2 className="my-[60px]">Meet The <span className="abrilh2">Barbers</span></h2>
         <div className="container flex flex-wrap items-center justify-center gap-8">
-            {barbers.map((barber) => (
+            {activeBarbers && activeBarbers.map((barber) => (
                 <button
                 onClick={e => handleBarberSelected(barber.id)} 
                 key={barber.id} className="group flex flex-col items-center bg-gradient-to-b from-[#FFFFFF] to-[#636363] dark:from-[#2B2828] dark:to-[#181717] shadow-2xl shadow-black/60 dark:shadow-lg dark:hover:shadow-2xl dark:hover:shadow-redprimary/20 dark:shadow-redprimary/20 p-4 w-[30%] min-w-[300px] h-[400px] overflow-hidden hover:scale-110 outline-redprimary">
@@ -56,7 +59,7 @@ const BarberSection = (props) => {
                 </button>
             ))}
         </div>
-        <BarberPopUp state={barberSelected} barberId={selectedBarberId} barbers={barbers} setActive={setBarberSelected} location={location}/>
+        <BarberPopUp state={barberSelected} barberId={selectedBarberId} barbers={barbers} setActive={setBarberSelected} location={location}/> 
     </div>
   )
 }

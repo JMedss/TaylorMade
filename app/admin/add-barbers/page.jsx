@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import Popup from "@/app/components/cms/Popup"
-import axios from "axios"
 import EditPopup from "@/app/components/cms/EditPopup"
 
 export default function AddBarbers() {
@@ -21,12 +20,24 @@ export default function AddBarbers() {
     }
   })
 
-  useEffect(() => {
-    const getBarbers = async () => {
-      const response = await axios.get("/api/getBarbers")
-      setBarbers(response.data)
+  async function getBarbers() {
+    const res = await fetch('http://localhost:3000/api/getBarbers', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }, 
+      cache: 'no-store'
+    })
+
+    if (!res.ok) {
+      throw new Error('Failed to fetch data')
     }
-    getBarbers() 
+    const data = await res.json()
+    setBarbers(data)
+  }
+
+  useEffect(() => {
+    getBarbers()
   }, [])
 
   const handleAddBarber = (e) => {

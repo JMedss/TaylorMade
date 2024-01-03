@@ -14,9 +14,12 @@ export const metadata = {
   description: 'A barber shop for everyone. Receive a multi-cultural experience at Taylor-Made Barber Shop. An hair style. Our Johnson City barber shop ensures you leave feeling confident and stylish. Experience the Taylor-Made difference today!',
 }
 
+
+
+
 const JohnsonCityBarberShop = () => {
 
-
+  
 
   const images = [
     { id: 1, imgOne: "/img1.jpg", imgTwo: "/img2.jpg", imgThree: "/img3.jpg", imgFour: "/img4.jpg", imgFive: "/img5.jpg" },
@@ -53,7 +56,7 @@ const JohnsonCityBarberShop = () => {
       <VideoSection />
       <Features cta="BOOK HAIRCUT" href="/johnsoncitybarbershop/barbers"/> 
       <Benefits />
-      <BarbersMain location="Johnson City"/>
+      <BarbersMain location="Johnson City"/> 
       <Portfolio images={[images]}/>
       <Testimonials reviews={[jcReviews]} />
       <FAQ questions={[questions]} />
