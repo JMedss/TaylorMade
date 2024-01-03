@@ -3,6 +3,8 @@ import Image from 'next/image'
 import ThemeSwitch from '../ThemeSwitch'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
+import { FaPhoneAlt } from "react-icons/fa"
+import { AiOutlineMail } from "react-icons/ai"
 
 const Icons = () => {
     const { theme, setTheme } = useTheme()
@@ -21,13 +23,7 @@ const Icons = () => {
       </span>
       <span className='flex items-center justify-center gap-3'>
         <Link className='outline-black dark:outline-redprimary' href="tel:+11231231234">
-            <Image
-            src={theme === "dark" ? "/darkphone.svg" : "/lightphone.svg"}
-            height={10}
-            width={30}
-            alt='Click to get in contact via telephone'
-            priority
-            />
+            <FaPhoneAlt />
         </Link>
             <Image
         src="/verticalborder.svg"
@@ -39,13 +35,7 @@ const Icons = () => {
       </span>
       <span className='flex items-center justify-center gap-3'>
         <Link className='outline-black dark:outline-redprimary' href="mailto:taylormade2017@gmail.com">
-            <Image
-            src={theme === "dark" ? "/darkemail.svg" : "/lightemail.svg"}
-            height={10}
-            width={30}
-            alt='Click to get in contact via email'
-            priority
-            />
+           <AiOutlineMail size={20} />
         </Link>
             <Image
         className='hidden md:flex'
@@ -71,7 +61,7 @@ const Icons = () => {
         />
         <Link className='outline-black dark:outline-redprimary' href="/cancel-appointment">
             <p className='text-[16px]'>
-                Cancel Appointment
+                Cancel Appt
             </p>
         </Link>
       </span>

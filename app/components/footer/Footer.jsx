@@ -62,7 +62,10 @@ const Footer = () => {
                 <div className="link-wrapper flex flex-col items-center py-4">
                     <h5>Pages</h5>
                     <Link className="outline-black dark:outline-redprimary" href="/locations">Locations</Link>
+                    <Link className="outline-black dark:outline-redprimary" href="/johnsoncitybarbershop">Johnson City</Link>
+                    <Link className="outline-black dark:outline-redprimary" href="/greenevillebarbershop">Greeneville</Link>
                     <Link className="outline-black dark:outline-redprimary" href="/aboutus">About</Link>
+                    <Link className="outline-black dark:outline-redprimary" href="/cookie-policy">Cookies</Link>
 
                 </div>
             </div>

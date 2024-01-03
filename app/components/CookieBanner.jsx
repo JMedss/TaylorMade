@@ -43,10 +43,10 @@ const CookieBanner = () => {
     if (!isVisible) return null;
 
   return (
-    <div className="fixed z-50 bottom-10 w-[50%] left-[50%] translate-x-[-50%] p-4 bg-gradient-to-r from-slate-400 to-slate-200 text-white shadow-xl">
-        <div className='flex items-center justify-around'>
-            <p className='text-black'>This website uses <Link href="/privacy" className='text-redprimary'>cookies</Link> to improve user experience.</p>
-            <div className='flex flex-col items-center gap-1'>
+    <div className="fixed z-50 bottom-10 w-[50%] min-w-[220px] left-[50%] translate-x-[-50%] p-4 bg-white dark:bg-darksecondary shadow-2xl dark:shadow-lg shadow-black dark:shadow-redprimary/20">
+        <div className='flex flex-col items-center justify-around md:flex-row'>
+            <p className=''>This website uses <Link href="/cookie-policy" className='text-redprimary'>cookies</Link> to improve user experience.</p>
+            <div className='flex items-center gap-1 my-2 md:flex-col'>
                 <button className='bg-blueprimary border border-blueprimary py-1 w-[100px]' onClick={handleAccept}>Accept</button>
                 <button className='bg-redprimary  border border-redprimary py-1 w-[100px]' onClick={handleReject}>Reject</button>
             </div>

@@ -19,7 +19,7 @@ const BarberSection = (props) => {
             setActiveBarbers(filteredBarbers)
         }
     }, [barbers])
-    console.log(activeBarbers)
+
     const handleBarberSelected = (barberId) => {
         setBarberSelected(true)
         setSelectedBarberId(barberId)

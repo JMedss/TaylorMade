@@ -30,12 +30,12 @@ const BarbersMain = (props) => {
     getBarbers()
   }, [])
 
-  console.log(barbers)
+
 
 
   return (
     <section id='barbers' className='bg-white dark:bg-darkprimary w-screen h-full relative'>
-        <NoBarbers barbers={barbers} />
+        <NoBarbers barbers={barbers} location={location}/>
         <BarberSection barbers={barbers} location={location} />
     </section>
   )

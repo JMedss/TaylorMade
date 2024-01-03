@@ -33,7 +33,7 @@ const Navbar = () => {
                   <Link className='outline-black dark:outline-redprimary' href="/locations">Locations</Link>
                 </li>
                 <li>
-                  <Link className='outline-black dark:outline-redprimary' href="/cancel-appointment">Cancel Appointment</Link>
+                  <Link className='outline-black dark:outline-redprimary' href="/cancel-appointment">Cancel Appt</Link>
                 </li>
               </ul>
             </nav>
