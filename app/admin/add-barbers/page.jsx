@@ -21,7 +21,7 @@ export default function AddBarbers() {
   })
 
   async function getBarbers() {
-    const res = await fetch('https://taylormade.com/api/getBarbers', {
+    const res = await fetch('https://taylormadebarbershop.com/api/getBarbers', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
