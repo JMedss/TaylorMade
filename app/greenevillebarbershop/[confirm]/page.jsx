@@ -55,7 +55,7 @@ const GVConfirm = () => {
     const handleConfirm = (e) => {
         e.preventDefault()
         const updatedAppointment = { ...appointment, confirmed: true }
-        // axios.post("/api/sms", updatedAppointment)
+        axios.post("/api/sms", updatedAppointment)
         axios.post("/api/confirmEmail", updatedAppointment)
         .then(() => toast.success("Appointment Confirmed"))
         .catch(() => toast.error("Something went wrong. Try again."))

@@ -52,14 +52,14 @@ const Greeneville = () => {
     <main> 
     <Hero subtitle="Greeneville Barber Shop" city="Greenevilles" barbers={["/barber1.png", "/barber2.png", "/barber3.png", "/barber4.png"]} urls={urls}/>
     <VideoSection />
-    <Features cta="BOOK HAIRCUT" href="/greenevillebarbershop/barbers"/> 
+    <Features cta="BOOK HAIRCUT" href="/greenevillebarbershop/barbers" location="greeneville"/> 
     <Benefits />
     <BarbersMain location="Greeneville"/>
     <Portfolio images={[images]}/>
     <Testimonials reviews={[gvReviews]} />
     <FAQ questions={[questions]} />
-    <CTA  cta="BOOK HAIRCUT" href="/" src="/ctagroominglounge.mp4"/>
-    <Contact position={position} url={url} addr={addr} hours={hours} href="/"/>
+    <CTA  cta="BOOK HAIRCUT" href="/greenevillebarbershop/barbers" src="/ctagroominglounge.mp4"/>
+    <Contact position={position} url={url} addr={addr} hours={hours} href="/greenevillebarbershop/barbers"/>
   </main>
   )
 }

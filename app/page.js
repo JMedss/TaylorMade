@@ -63,14 +63,14 @@ export default function Home() {
         }
       })
     } 
-  }, [userLocation])
+  }, [userLocation, router])
 
    
     return (
       <main>
         <HomeHero />
         <VideoSection />
-        <Features cta="VIEW LOCATIONS" href="/locations"/>
+        <Features cta="VIEW LOCATIONS" href="/locations" location="johnsoncity"/>
         <CTA  cta="VIEW LOCATIONS" href="/locations" src="/ctavideo.mp4"/>
       </main>
   ) 

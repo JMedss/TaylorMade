@@ -46,7 +46,7 @@ const DateTimeCard = (props) => {
             }
 
         }
-    }, [selectedDate, appointments])
+    }, [selectedDate, appointments, allTimes, barber.daysOff, stringDuration])
 
         const updateAvailableTimes = (date, bookedTimes, slotsNeeded, newTimes) => {
             let continuousAvailableTimes = []

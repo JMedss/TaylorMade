@@ -15,7 +15,7 @@ const Testimonials = (props) => {
     }, 6000); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
-  }, [currentIndex, props.reviews[0].length]);
+  }, [currentIndex, props.reviews[0].length, props.reviews]);
 
 
   return (

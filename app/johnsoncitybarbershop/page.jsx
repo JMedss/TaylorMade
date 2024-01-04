@@ -54,14 +54,14 @@ const JohnsonCityBarberShop = () => {
     <main> 
       <Hero subtitle="Johnson City Barber Shop" city="Johnson Cities" barbers={["/barber1.png", "/barber2.png", "/barber3.png", "/barber4.png"]} urls={urls}/>
       <VideoSection />
-      <Features cta="BOOK HAIRCUT" href="/johnsoncitybarbershop/barbers"/> 
+      <Features cta="BOOK HAIRCUT" href="/johnsoncitybarbershop/barbers" location="johnsoncity"/> 
       <Benefits />
       <BarbersMain location="Johnson City"/> 
       <Portfolio images={[images]}/>
       <Testimonials reviews={[jcReviews]} />
       <FAQ questions={[questions]} />
-      <CTA  cta="BOOK HAIRCUT" href="/" src="/ctavideo.mp4"/>
-      <Contact position={position} url={url} addr={addr} hours={hours} href="/" />
+      <CTA  cta="BOOK HAIRCUT" href="/johnsoncitybarbershop/barbers" src="/ctavideo.mp4"/> 
+      <Contact position={position} url={url} addr={addr} hours={hours} href="/johnsoncitybarbershop/barbers" />
     </main>
   )
 }

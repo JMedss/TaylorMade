@@ -1,8 +1,15 @@
+"use client"
+import { useRouter } from "next/navigation"
 import GoogleMap from "./GoogleMap"
 
 const Contact = (props) => {
     const position = props.position
     let url = props.url
+    const router = useRouter()
+    const handleClick = (e) => {
+      e.preventDefault()
+      router.push(props.href)
+    }
   return (
     <section className="bg-white dark:bg-darkprimary py-[120px]">
         <div className="flex-col items-center container max-w-[1000px]">
@@ -16,7 +23,7 @@ const Contact = (props) => {
                 <span><p>Thursday: {props.hours}</p></span>
                 <span><p>Friday: {props.hours}</p></span>
                 <span><p>Saturday: {props.hours}</p></span>
-                <button href={props.href} className="text-white bg-redprimary hover:bg-redprimary/80 transition-all w-[40%] max-w-[200px] md:max-w-[300px] p-1 md:p-2 mt-4 mb-[60px] font-bold outline-black dark:outline-white">BOOK HAIRCUT</button>
+                <button onClick={handleClick} className="text-white bg-redprimary hover:bg-redprimary/80 transition-all w-[40%] max-w-[200px] md:max-w-[300px] p-1 md:p-2 mt-4 mb-[60px] font-bold outline-black dark:outline-white">BOOK HAIRCUT</button>
             </div>
             <GoogleMap position={position} url={url} />
         </div>

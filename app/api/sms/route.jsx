@@ -6,9 +6,12 @@ export async function POST(request) {
     const accountSID = process.env.TWILIO_ACCOUNT_SID
     const authToken = process.env.TWILIO_AUTH_TOKEN
     const client = require("twilio")(accountSID, authToken)
+
     const body = await request.json() 
     const { confirmed } = body
     const { customerEmail, customerPhone, customerName, time, date } = body[0]
+    console.log(customerEmail, customerPhone, customerName, time, date, confirmed)
+
 
     if(customerPhone) {
         const result = await client.messages.create({

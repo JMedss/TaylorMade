@@ -58,7 +58,7 @@ const Logo = () => {
             })
             setLocation("Johnson City")
         }
-    }, [])
+    }, [locations.greeneville.dark, locations.greeneville.light, locations.greeneville.alt, locations.johnsoncity.dark, locations.johnsoncity.light, locations.johnsoncity.alt])
 
 
   return (

@@ -22,7 +22,7 @@ const BarberPopUp = (props) => {
             const filteredBarber = barbers.filter((barber) => barberId === barber.id)
             setBarber(filteredBarber[0])
         }
-    }, [active])
+    }, [active, barberId, barbers])
 
     const closePopUp = (e) => {
         e.preventDefault(
