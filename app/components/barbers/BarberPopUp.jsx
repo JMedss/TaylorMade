@@ -1,5 +1,4 @@
 "use client"
-import { useRouter } from "next/navigation"
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"                    
@@ -11,7 +10,7 @@ import { SlSocialYoutube, SlSocialInstagram, SlSocialFacebook } from "react-icon
 
 const BarberPopUp = (props) => {
     const location = props.location
-    const router = useRouter()
+
     const barberId = props.barberId
     const active = props.state 
     const barbers = props.barbers
@@ -32,8 +31,7 @@ const BarberPopUp = (props) => {
 
     const handleBook = (e) => {
         e.preventDefault()
-        const url = location === "Johnson City" ? `/johnsoncitybarbershop/barbers/${barber.name}` : `/greenevillebarbershop/barbers/${barber.name}` 
-        router.push(url)
+        window.location.href = barber.link
     } 
 
   return (
