@@ -4,14 +4,14 @@ import prisma from "@/app/libs/prismadb"
 
 export async function PUT(request) {
     const body = await request.json()
-    const { name, email, location, benefitOne, benefitTwo, benefitThree, benefitFour, instagram, facebook, tiktok, youtube, id, daysOff } = body
-    console.log(daysOff)
+    const { name, link, location, benefitOne, benefitTwo, benefitThree, benefitFour, instagram, facebook, tiktok, youtube, id } = body
+
     const barber = await prisma.barber.update({
         where: { id: id },
         data: {
             name,
             location,
-            email,
+            link,
             benefitOne,
             benefitTwo,
             benefitThree,
@@ -19,8 +19,7 @@ export async function PUT(request) {
             instagram,
             youtube,
             tiktok,
-            facebook,
-            daysOff
+            facebook
         }
     })
 

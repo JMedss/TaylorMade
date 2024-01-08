@@ -46,25 +46,6 @@ const Icons = () => {
         priority
         />
       </span>
-      <span className='hidden md:flex items-center justify-center gap-3'>
-        <Link className='outline-black dark:outline-redprimary' href="/tracker">
-            <p className='text-[16px]'>
-                Tracker
-            </p>
-        </Link>
-        <Image
-        src="/verticalborder.svg"
-        width={2}
-        height={20}
-        alt=""
-        priority
-        />
-        <Link className='outline-black dark:outline-redprimary' href="/cancel-appointment">
-            <p className='text-[16px]'>
-                Cancel Appt
-            </p>
-        </Link>
-      </span>
     </div>
   )
 }

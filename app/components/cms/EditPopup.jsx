@@ -3,18 +3,18 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import DeletePopUp from "./DeletePopUp"
 import toast from "react-hot-toast"
-import { useRouter } from "next/navigation"
+
 
 const EditPopup = (props) => {
     const barber = props.barber
     const edit = props.state
     const setEdit = props.setEdit
-    const router = useRouter()
+
     const [data, setData] = useState({
         id: "",
         name: "",
         location: "",
-        email: "",
+        link: "",
         benefitOne: "",
         benefitTwo: "",
         benefitThree: "",
@@ -23,30 +23,20 @@ const EditPopup = (props) => {
         facebook: "",
         tiktok: "",
         youtube: "",
-        daysOff: ""
     })
 
 
-    const [services, setServices] = useState(false)
+
     const [isDisabled, setIsDisabled] = useState(true)
-    const [serviceData, setServicesData] = useState({
-        barberId: ""
-    })
-    const [selectedDays, setSelectedDays] = useState({
-        Monday: false,
-        Tuesday: false,
-        Wednesday: false,
-        Thursday: false,
-        Friday: false,
-        Saturday: false,
-      })
+
+ 
     useEffect(() => {
         if(barber !== undefined) {
             setData({
                 id: barber.id,
                 name: barber.name,
                 location: barber.location,
-                email: barber.email,
+                link: barber.link,
                 benefitOne: barber.benefitOne,
                 benefitTwo: barber.benefitTwo,
                 benefitThree: barber.benefitThree,
@@ -55,29 +45,7 @@ const EditPopup = (props) => {
                 facebook: barber.facebook,
                 tiktok: barber.tiktok,
                 youtube: barber.youtube,
-                daysOff: barber.daysOff
             })
-            setServicesData({
-                barberId: barber.id
-            })
-            if (barber.daysOff !== "" && barber.daysOff !== undefined && barber.daysOff !== null) {
-                const days = barber.daysOff.split(", ")
-                for (const day of days) {
-                    if (day === 'Monday') {
-                        setSelectedDays(prevState => ({ ...prevState, Monday: true }))
-                    } else if (day === 'Tuesday') {
-                        setSelectedDays(prevState => ({ ...prevState, Tuesday: true }))
-                    } else if (day === 'Wednesday') {
-                        setSelectedDays(prevState => ({ ...prevState, Wednesday: true }))
-                    } else if (day === 'Thursday') {
-                        setSelectedDays(prevState => ({ ...prevState, Thursday: true }))
-                    } else if (day === 'Friday') {
-                        setSelectedDays(prevState => ({ ...prevState, Friday: true }))
-                    } else if (day === 'Saturday') {
-                        setSelectedDays(prevState => ({ ...prevState, Saturday: true }))
-                    }
-                  }
-            }
         }
     }, [barber])
 
@@ -87,15 +55,6 @@ const EditPopup = (props) => {
     const closePopUp = (e) => {
         setEdit(!edit)
         setIsDisabled(true)
-        setServices(false)
-        setSelectedDays({
-            Monday: false,
-            Tuesday: false,
-            Wednesday: false,
-            Thursday: false,
-            Friday: false,
-            Saturday: false,
-        })
     }
 
     const deleteBarber = async (e) => {
@@ -112,9 +71,8 @@ const EditPopup = (props) => {
         setData({...data, location: e.target.value})
         setIsDisabled(false)
     }
-    const handleEmail = (e) => {
-        const emailChars = e.target.value.replace(/[^a-zA-Z0-9@._-]/g, '');
-        setData({...data, email: emailChars})
+    const handleLink = (e) => {
+        setData({...data, link: e.target.value})
         setIsDisabled(false)
     }
     const handleBenefitOne = (e) => {
@@ -153,26 +111,11 @@ const EditPopup = (props) => {
         setData({...data, youtube: e.target.value})
         setIsDisabled(false)
     }
-    const handleViewServices = (e) => {
-        e.preventDefault()
-        router.push(`/admin/add-barbers/${barber.id}`)
-    }
 
-   
 
-    const handleCheckBox = (day) => {
-        setSelectedDays((prevSelectedDays) => {
-            const updatedDays = { ...prevSelectedDays, [day]: !prevSelectedDays[day] };
-      
-            // Extract an array of selected days
-            const selectedDaysArray = Object.keys(updatedDays).filter((d) => updatedDays[d]);
-      
-            // Update the daysOff in the data state
-            setData({ ...data, daysOff: selectedDaysArray.join(', ') });
-            setIsDisabled(false)
-            return updatedDays;
-          })
-    }
+   console.log(data)
+
+
 
     const handleBasicInfo = (e) => {
         e.preventDefault()
@@ -206,13 +149,13 @@ const EditPopup = (props) => {
                 </div>
 
                 <div className='flex flex-col my-1'>
-                    <label htmlFor="email" className='block text-sm font-medium leading-6 text-redprimary'>Email</label>
+                    <label htmlFor="link" className='block text-sm font-medium leading-6 text-redprimary'>Link</label>
                     <input
                     className='outline-redprimary block pl-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-redprimary sm:text-sm sm:leading-6 bg-white'
-                    type='email'
-                    id='email'
-                    value={data && data.email}
-                    onChange={handleEmail}
+                    type='text'
+                    id='link'
+                    value={data && data.link}
+                    onChange={handleLink}
                     />
                 </div>
 
@@ -314,33 +257,14 @@ const EditPopup = (props) => {
                     />
                 </div>
 
-                <p className='text-[18px] my-5 text-black'>Days Off:</p>
-                
-                <div>
-                    {Object.keys(selectedDays).map((day) => (
-                        <div key={day} className='flex'>
-                        <label htmlFor={day.toLowerCase()} className="text-black">
-                            <input
-                            id={day.toLowerCase()}
-                            className="mr-4"
-                            type="checkbox"
-                            checked={selectedDays[day]}
-                            onChange={() => handleCheckBox(day)}
-                            />
-                            {day}
-                        </label>
-                        </div>
-                    ))}
-                </div>
+
 
                 <button 
                 disabled={isDisabled === true}
-                type="submit" className="bg-redprimary w-full my-2 py-1 rounded-md disabled:opacity-70">Update Basic Info</button>
+                type="submit" className="bg-blueprimary w-full my-2 py-1 rounded-md disabled:opacity-70">Update Basic Info</button>
             </form>
         
-            <div className="flex flex-col w-full">
-                <button onClick={handleViewServices} className="text-white bg-blueprimary w-full my-2 py-1 rounded-md">View All Services</button>
-            </div> 
+          
 
                 <div className="w-full pb-[80px]">
                     <button
