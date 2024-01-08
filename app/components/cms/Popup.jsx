@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 const Popup = (props) => {
     const [data, setData] = useState({
         name: "",
-        email: "",
+        link: "",
         location: "Johnson City"
     })
     const active = props.state
@@ -30,10 +30,8 @@ const Popup = (props) => {
         setData({ ...data, name: onlyLetters });
     }
 
-    const handleEmailChange = (e) => {
-        // Allow only characters valid in email addresses
-        const emailChars = e.target.value.replace(/[^a-zA-Z0-9@._-]/g, '');
-        setData({ ...data, email: emailChars });
+    const handleLinkChange = (e) => {
+        setData({ ...data, link: e.target.value });
     }
 
     console.log(data)
@@ -70,19 +68,17 @@ const Popup = (props) => {
 
                                 <div>
                                     <div className="flex items-center justify-between">
-                                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-redprimary">
-                                        Email
+                                        <label htmlFor="link" className="block text-sm font-medium leading-6 text-redprimary">
+                                        Link
                                         </label>
                                     </div>
                                     <div className="mt-2">
                                         <input
-                                        id="email"
-                                        name="email"
-                                        type="email"
-                                        value={data.email}
-                                        onChange={handleEmailChange}
-                                        autoComplete="email"
-                                        placeholder="example@example.com"
+                                        id="link"
+                                        name="link"
+                                        type="text"
+                                        value={data.link}
+                                        onChange={handleLinkChange}
                                         required
                                         className="outline-redprimary block pl-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-redprimary sm:text-sm sm:leading-6 bg-white"
                                         />
