@@ -29,7 +29,6 @@ const Features = (props) => {
             <div className='flex flex-col items-center md:items-start my-[120px] z-20 w-full'>
                 <FeatureCard linkHref={`/${location}barbershop/barbers`} header="Get the haircut you paid for." bfText="We have all been there. Disappointed after getting a new haircut. Our barbers are" redText="true masters" afText="of their craft. This will be the last time you have to search best barber shop near me!" />
                 <FeatureCard linkHref={`/${location}barbershop/barbers`} header="A barber for any hair type." bfText="We have multiple barbers that specialize in many hairstyles and types. Make sure you check out our different barbers to" redText="find the right barber" afText="for you." />
-                <FeatureCard linkHref="/tracker" header="No more aimlessly waiting." bfText="Track the waiting time with our new tracking system. When your appointment is near," redText="go to our tracker." afText="This will be the last time you have to search best barber shop near me!" />
             </div>
             <button
             className='bg-redprimary w-[60vw] max-w-[350px] text-white py-2 hover:bg-redprimary/80 transition-all outline-black dark:outline-white'

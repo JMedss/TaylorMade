@@ -8,7 +8,7 @@ const Benefits = () => {
             <h2 className='my-[60px] text-center'>The Taylor-Made <span className='abrilh2'>Barber Shop</span> Experience</h2>
             <div className='flex flex-col items-center lg:flex-row '>
                 <BenefitsCard header="Taylor-Made Experience" bulletone="Find the barber for your hair." bullettwo="Relax and enjoy the atmosphere." bulletthree="Leave with a personalized Taylor-Made experience." />
-                <BenefitsCard header="Easy, Efficient Convenience" bulletone="Eliminate the need for waiting." bullettwo="Stay on time with our tracking system" bulletthree="Make your visit hassle-free and efficient." />
+                <BenefitsCard header="Great, Quality Barbers" bulletone="Barbers that listen to your wants." bullettwo="Great community" bulletthree="Qaulity, professional haircuts" />
                 <BenefitsCard header="Guaranteed Satisfaction" bulletone="Get the haircut you paid for." bullettwo="Leave with confidence." bulletthree="Impress the town." />
             </div>
         </div>
