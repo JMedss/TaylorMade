@@ -14,7 +14,7 @@ const Logo = () => {
     })
     
     const [location, setLocation] = useState("")
-
+    const [currentUrl, setCurrentUrl] = useState("")
     const locations = {
         johnsoncity: {
             light: "/lightlogo.png",
@@ -30,9 +30,7 @@ const Logo = () => {
 
 
     useEffect(() => {
-       const currentUrl = window.location.href 
-
-
+        setCurrentUrl(window.location.href)
         const jcExists = currentUrl.indexOf("johnsoncitybarbershop") !== -1
         const greenevilleExists = currentUrl.indexOf("greenevillebarbershop") !== -1
         
@@ -58,7 +56,7 @@ const Logo = () => {
             })
             setLocation("Johnson City")
         }
-    }, [locations.greeneville.dark, locations.greeneville.light, locations.greeneville.alt, locations.johnsoncity.dark, locations.johnsoncity.light, locations.johnsoncity.alt])
+    }, [locations.greeneville.dark, locations.greeneville.light, locations.greeneville.alt, locations.johnsoncity.dark, locations.johnsoncity.light, locations.johnsoncity.alt, currentUrl])
 
 
   return (

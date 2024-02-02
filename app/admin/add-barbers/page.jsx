@@ -61,7 +61,7 @@ export default function AddBarbers() {
   }
 
   return (
-    <main className="mt-[120px] w-screen h-full min-w-screen relative">
+    <main className="mt-[200px] w-screen h-full min-w-screen relative">
       <div className="container flex flex-col items-center">
         <h1 className="mt-[60px]">Barbers</h1>
         {barbers && barbers.map((barber) => (
