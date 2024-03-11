@@ -38,7 +38,8 @@ const BarberSection = (props) => {
                         src="/logotop.svg"
                         width={130}
                         height={50}
-                        alt=""
+                        priority
+                        alt={`The logo of the barber, ${barber.name}`}
                         />
                         <h4 className="leading-[105%]">{barber.name}</h4>
                         <div className="flex items-center">
