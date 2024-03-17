@@ -48,7 +48,7 @@ const BarberSection = (props) => {
                             alt="scissors icon"
                             priority
                             />
-                            <p className="text-nowrap text-[12px]">{location === "Johnson City" ? "TAYLOR-MADE BARBER SHOP" : "TAYLOR-MADE GROOMING LOUNGE"}</p>
+                            <p className="text-center text-[12px]">{location === "Johnson City" ? "TAYLOR-MADE BARBER SHOP" : "TAYLOR-MADE GROOMING LOUNGE"}</p>
                             <Image
                             className="mx-1"
                             src={theme === "dark" ? "/scissorsiconwhite.svg" : "/scissorsicon.svg"}
