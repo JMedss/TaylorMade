@@ -15,7 +15,10 @@ html {
     overflow: hidden;
 }
 
-
+h3.barbers {
+    font-family: Abril Fatface;
+    color: #BA0810;
+}
 
 @layer components {
     .wrapper{

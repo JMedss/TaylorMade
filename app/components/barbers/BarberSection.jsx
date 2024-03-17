@@ -1,10 +1,16 @@
 "use client"
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import BarberStars from "./BarberStars"
-import BarberPopUp from "./BarberPopUp"
+import { FaCircle } from "react-icons/fa"
+import { PiTiktokLogoThin } from "react-icons/pi"
+import { SlSocialYoutube, SlSocialInstagram, SlSocialFacebook } from "react-icons/sl"
+import Link from "next/link"
+import { useTheme } from "next-themes"
+
+
 
 const BarberSection = (props) => {
+    const { theme, setTheme } = useTheme()
     const location = props.location
     const [noBarbers, setNoBarbers] = useState(true)
     const [barberSelected, setBarberSelected] = useState(false)
@@ -24,43 +30,126 @@ const BarberSection = (props) => {
         setBarberSelected(true)
         setSelectedBarberId(barberId)
     }
+    console.log("activeBarbers", activeBarbers) 
   return (
     <div className={`${noBarbers ? "hidden" : "flex" } flex-col items-center`}>
             <h2 className="my-[60px]">Meet The <span className="abrilh2">Barbers</span></h2>
         <div className="container flex flex-wrap items-center justify-center gap-8">
             {activeBarbers && activeBarbers.map((barber) => (
-                <button
-                onClick={e => handleBarberSelected(barber.id)} 
-                key={barber.id} className="group flex flex-col items-center bg-gradient-to-b from-[#FFFFFF] to-[#636363] dark:from-[#2B2828] dark:to-[#181717] shadow-2xl shadow-black/60 dark:shadow-lg dark:hover:shadow-2xl dark:hover:shadow-redprimary/20 dark:shadow-redprimary/20 p-4 w-[30%] min-w-[300px] h-[400px] overflow-hidden hover:scale-110 outline-redprimary">
-                    <div className="flex flex-col items-center">
-                        <Image 
-                        className="mb-[-10px]"
-                        src="/logotop.svg"
-                        width={130}
-                        height={50}
-                        priority
-                        alt={`The logo of the barber, ${barber.name}`}
-                        />
-                        <h4 className="leading-[105%]">{barber.name}</h4>
-                        <div className="flex items-center">
-                            <div className="bg-redprimary w-[25px] h-[1px]" />
-                            <BarberStars />
-                            <div className="bg-redprimary w-[25px] h-[1px]" />
+                <div key={barber.id} className="bg-[#E8E8E8] dark:bg-[#181717] flex flex-col w-full p-2 min-w-[340px] max-w-[450px] shadow-xl shadow-black/40 dark:shadow-black">
+                    <div className="flex flex-col justify-center w-full">
+                        <div className="flex items-center w-full justify-center">
+                            <div className="bg-black dark:bg-white h-[1px] w-[25%]"/>
+                            <Image
+                            className="mx-1"
+                            src={theme === "dark" ? "/scissorsiconwhite.svg" : "/scissorsicon.svg"}
+                            width={8}
+                            height={8}
+                            alt="scissors icon"
+                            priority
+                            />
+                            <p className="text-nowrap text-[12px]">{location === "Johnson City" ? "TAYLOR-MADE BARBER SHOP" : "TAYLOR-MADE GROOMING LOUNGE"}</p>
+                            <Image
+                            className="mx-1"
+                            src={theme === "dark" ? "/scissorsiconwhite.svg" : "/scissorsicon.svg"}
+                            width={8}
+                            height={8}
+                            alt="scissors icon"
+                            priority
+                            />
+                            <div className="bg-black dark:bg-white h-[1px] w-[25%]"/>
+                        </div>
+
+                        <h3 className="barbers tracking-wider w-full text-center text-[30px]  -mt-[0.25px] lg:text-nowrap">{barber.name}</h3>
+
+                        <div className="flex w-full justify-center">
+                            <div className="bg-black dark:bg-white h-[1px] w-full max-w-[404px]" />
+                        </div>
+
+                        <div className="flex items-center w-full justify-center my-1">
+                            <p className="text-nowrap text-[12px]">{location === "Johnson City" ? "817 WEST WALNUT ST. SUITE #7" : "907 ERWIN HWY"}</p>
+                            <Image
+                            className="mx-1"
+                            src={theme === "dark" ? "/barberchairiconwhite.svg" : "/barberchairicon.svg"}
+                            width={20}
+                            height={20}
+                            />
+                            <p className="text-nowrap text-[12px]">{location === "Johnson City" ? "JOHNSON CITY, TENNESSEE" : "TUSCULUM, TENNESSEE"}</p>
+                        </div>
+
+                        <div className="flex w-full justify-center">
+                            <div className="bg-black dark:bg-white h-[1px] w-full max-w-[404px]" />
+                        </div>
+
+                    </div>
+
+                    <div className="flex justify-around w-full my-2">
+                        <div className="flex items-center justify-center">
+                            <Image
+                            src={barber.picture}
+                            width={110}
+                            height={110}
+                            alt={barber.name}
+                            priority
+                            />
+                        </div>
+
+                        <div className="flex flex-col items-center">
+                                <h6 className="font-abril-fatface text-redprimary text-[18px] md:text-[22px]">MY SIGNATURE STYLES</h6>
+
+                                <div className="flex flex-col">
+                                    <div className="flex items-center">
+                                        <p className="text-[14px] md:text-[18px]">{barber.benefitOne ? barber.benefitOne.toUpperCase() : "HAIRCUTS"}</p>
+                                        <FaCircle size={8} className="mx-1"/>
+                                        <p className="text-[14px] md:text-[18px]">{barber.benefitTwo ? barber.benefitTwo.toUpperCase() : "TAPERS"}</p>
+                                        <FaCircle size={8} className="mx-1"/>
+                                        <p className="text-[14px] md:text-[18px]">{barber.benefitThree ? barber.benefitThree.toUpperCase() : "FADES"}</p>
+                                    </div>
+                                    <div className="flex items-center w-full justify-center">
+                                        <FaCircle size={8} className="mx-1"/>
+                                        <p className="text-[14px] md:text-[18px]">{barber.benefitFour ? barber.benefitFour.toUpperCase() : "TRIMS"}</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex w-full justify-center my-2">
+                                    <div className="bg-redprimary h-[1px] w-[50%]" />
+                                </div>
+
+                                <div className="flex items-center justify-center gap-2 w-full">
+                                    <Link 
+                                    href={barber.facebook ? barber.facebook : "https://www.facebook.com"}
+                                    target="_blank"
+                                    >
+                                        <SlSocialFacebook size={22} className="text-black/20 dark:text-white/60"/>
+                                    </Link>
+
+                                    <Link
+                                    href={barber.instagram ? barber.instagram : "https://www.instagram.com dark:text-white/60"}
+                                    target="_blank"
+                                    >
+                                        <SlSocialInstagram size={22} className="text-black/20 dark:text-white/60"/>
+                                    </Link>
+
+                                    <Link
+                                    href={barber.youtube ? barber.youtube : "https://www.youtube.com"}
+                                    target="_blank"
+                                    >
+                                        <SlSocialYoutube size={26} className="text-black/20 dark:text-white/60"/>
+                                    </Link>
+
+                                    <Link 
+                                    href={barber.tiktok ? barber.tiktok : "https://www.tiktok.com"}
+                                    target="_blank"
+                                    >
+                                        <PiTiktokLogoThin size={24} className="text-black/20 dark:text-white/60"/>
+                                    </Link>
+                                </div>
+                                <button onClick={() => window.open(barber.link)} className="w-full bg-redprimary text-white font-bold mt-2 text-[20px]">BOOK NOW</button>
                         </div>
                     </div>
-                    <p className="text-redprimary opacity-100 md:opacity-0 group-hover:opacity-100 transition-all my-3">Click To Learn More</p>
-                    <div>
-                        <Image 
-                        src={barber.picture}
-                        width={200}
-                        height={100}
-                        alt={`An image of the barber, ${barber.name}`}
-                        />
-                    </div>
-                </button>
+                </div>
             ))}
         </div>
-        <BarberPopUp state={barberSelected} barberId={selectedBarberId} barbers={barbers} setActive={setBarberSelected} location={location}/> 
     </div>
   )
 }

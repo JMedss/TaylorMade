@@ -8,7 +8,7 @@ import Link from 'next/link'
 const Navbar = () => {
  
   return (
-      <header className='bg-white dark:bg-[#1F1F1F] shadow-lg dark:shadow-black min-h-[122px] h-[15vh] fixed z-50 top-0 left-0 w-full flex flex-col'>
+      <header className='bg-white dark:bg-[#1F1F1F] shadow-lg dark:shadow-black min-h-[130px] h-[15vh] fixed z-50 top-0 left-0 w-full flex flex-col'>
         <div className='w-full bg-redprimary flex items-center justify-center mb-1 md:mb-0'>
           <p className=' text-white text-[14px] sm:text-[14px]  md:text-[16px] lg:text-[18px]'>Taylor-Made Barber Shop is coming to ETSU. <Link className='underline' href="/etsuinfo">Learn More</Link></p>
         </div>

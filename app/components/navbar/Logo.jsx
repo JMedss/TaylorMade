@@ -2,9 +2,11 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
+import { useRouter } from "next/navigation"
 
 const Logo = () => {
 
+    const router = useRouter()
     const { theme, setTheme } = useTheme()
 
     const [logo, setLogo] = useState({
@@ -17,8 +19,8 @@ const Logo = () => {
     const [currentUrl, setCurrentUrl] = useState("")
     const locations = {
         johnsoncity: {
-            light: "/lightlogo.png",
-            dark: "/darklogo.png",
+            light: "/newlogo.svg",
+            dark: "/newlogowhite.svg",
             alt: "Taylor-Made Barber Shop logo"
         },
         greeneville: {
@@ -60,16 +62,19 @@ const Logo = () => {
 
 
   return (
-    <div className="logo-wrapper">
+    <button 
+    className="logo-wrapper"
+    onClick={() => router.push("/") }
+    >
       <Image 
-      className={location === "Johnson City" ? "ml-[-60px] min-w-[150px]" : "ml-0 min-w-[150px]" }
+      className={location === "Johnson City" ? "" : "ml-0 min-w-[150px]" }
       src={theme === "dark" ? logo.dark : logo.light }
-      width={location === "Johnson City" ? 250 : 150}
-      height={500}
+      width={location === "Johnson City" ? 60 : 150}
+      height={10}
       alt={logo.alt}
       priority
       />
-    </div>
+    </button>
   )
 }
 
