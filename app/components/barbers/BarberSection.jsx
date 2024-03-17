@@ -67,14 +67,14 @@ const BarberSection = (props) => {
                         </div>
 
                         <div className="flex items-center w-full justify-center my-1">
-                            <p className="text-nowrap text-[12px]">{location === "Johnson City" ? "817 WEST WALNUT ST. SUITE #7" : "907 ERWIN HWY"}</p>
+                            <p className="text-center text-[12px]">{location === "Johnson City" ? "817 WEST WALNUT ST. SUITE #7" : "907 ERWIN HWY"}</p>
                             <Image
                             className="mx-1"
                             src={theme === "dark" ? "/barberchairiconwhite.svg" : "/barberchairicon.svg"}
                             width={20}
                             height={20}
                             />
-                            <p className="text-nowrap text-[12px]">{location === "Johnson City" ? "JOHNSON CITY, TENNESSEE" : "TUSCULUM, TENNESSEE"}</p>
+                            <p className="text-center text-[12px]">{location === "Johnson City" ? "JOHNSON CITY, TENNESSEE" : "TUSCULUM, TENNESSEE"}</p>
                         </div>
 
                         <div className="flex w-full justify-center">
