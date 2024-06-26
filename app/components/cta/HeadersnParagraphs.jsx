@@ -52,7 +52,7 @@ const HeadersnParagraphs = () => {
         </div>
         <div className='flex flex-col w-[80%] max-w-[700px] gap-8 mb-24'>
             <p>Feel the energy as you walk through the door. The Taylor-Made experience is more than a haircut, it is a whole vibe. Leave refreshed. Leave energized. Leave happy.</p>
-            <p>Don't miss out – secure your spot with our highly skilled barbers. Our appointments fill up quickly.</p>
+            <p>Don&apos;t miss out – secure your spot with our highly skilled barbers. Our appointments fill up quickly.</p>
             <Buttons text={cta.text} link={cta.link} classes="border-redprimary text-redprimary hover:bg-redprimary hover:text-[#FFFAFA] transition duration-1000 ease-in-out"/>
         </div>
         <div className='w-full shadow-xl shadow-black mb-24 border border-black'>
