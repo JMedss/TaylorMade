@@ -21,12 +21,7 @@ const JohnsonCityBarberShop = () => {
 
   
 
-  const images = [
-    { id: 1, imgOne: "/img1.jpg", imgTwo: "/img2.jpg", imgThree: "/img3.jpg", imgFour: "/img4.jpg", imgFive: "/img5.jpg" },
-    { id: 2, imgOne: "/img6.jpg", imgTwo: "/img7.jpg", imgThree: "/img8.jpg", imgFour: "/img9.jpg", imgFive: "/img10.jpg" },
-    { id: 3, imgOne: "/img11.jpg", imgTwo: "/img12.jpg", imgThree: "/img13.jpg", imgFour: "/img14.jpg", imgFive: "/img15.jpg" },
-    { id: 4, imgOne: "/img16.jpg", imgTwo: "/img17.jpg", imgThree: "/img18.jpg", imgFour: "/img19.jpg", imgFive: "/img20.jpg" }
-  ]
+  const images = ["/img1.jpg", "/img2.jpg", "/img3.jpg", "/img4.jpg", "/img5.jpg", "/img6.jpg", "/img7.jpg", "/img8.jpg", "/img9.jpg", "/img10.jpg", "/img11.jpg", "/img12.jpg", "/img13.jpg", "/img14.jpg", "/img15.jpg", "/img16.jpg", "/img17.jpg", "/img18.jpg", "/img19.jpg", "/img20.jpg"]
   
   const jcReviews = [
     { id: 1, name: "Doug Williams Jr", review: "Hands down the best shop in the city. Coming from Houston, Ive visited several different shops since moving to JC. Without question the best in the city. Everyone is extremely personable and welcoming. You can tell the owner really cares about his employees. Not a single bad thing to say about the experience" },
@@ -37,7 +32,7 @@ const JohnsonCityBarberShop = () => {
   ]
 
   const questions = [
-    {id: 1, question: "How long is the typical wait for a hair cut?", answer: "Our typical wait time for a haircut varies, but to enhance your convenience, we have implemented a real-time tracker system."},
+    {id: 1, question: "How long is the typical wait for a hair cut?", answer: "Our typical wait time for a haircut varies, but to enhance your experience, book online or call ahead to save time!"},
     {id: 2, question: "What services does your barber shop offer?", answer: "At Taylor-Made Barber Shop, our services cater to a wide range of grooming needs, and the specifics may vary based on the individual expertise of each barber. However, collectively, our skilled team covers just about everything you might be looking for. "},
     {id: 3, question: "What is the average cost of a haircut at your barber shop?", answer: "Each barber sets their own pricing based on factors such as the complexity of the cut, time required, and their level of experience. "},
     {id: 4, question: "Can I book appointments online?", answer: "Booking appointments at Taylor-Made Barber Shop is made simple and convenient through our online platform. "},
@@ -52,13 +47,14 @@ const JohnsonCityBarberShop = () => {
 
   return (
     <main> 
-      <Hero subtitle="Johnson City Barber Shop" city="Johnson Cities" barbers={["/barber1.png", "/barber2.png", "/barber3.png", "/barber4.png"]} urls={urls}/>
+      <Hero />
       <VideoSection />
-      <Features cta="BOOK HAIRCUT" href="/johnsoncitybarbershop/barbers" location="johnsoncity"/> 
-      <Benefits />
+      <Features />   
       <BarbersMain location="Johnson City"/> 
-      <Portfolio images={[images]}/>
-      <Testimonials reviews={[jcReviews]} />
+      <div className="flex flex-col w-screen blue-gradient">
+        <Portfolio images={images}/>
+        <Testimonials reviews={[jcReviews]} />
+      </div>
       <FAQ questions={[questions]} />
       <CTA  cta="BOOK HAIRCUT" href="/johnsoncitybarbershop/barbers" src="/ctavideo.mp4"/> 
       <Contact position={position} url={url} addr={addr} hours={hours} href="/johnsoncitybarbershop/barbers" />

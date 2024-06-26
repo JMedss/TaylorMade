@@ -20,7 +20,7 @@ const LocationCard = (props) => {
             className={`absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] ${props.minwidth}`}
             src={props.img}
             width={props.size}
-            height={200}
+            height={50}
             alt={props.alt}
             priority
             />

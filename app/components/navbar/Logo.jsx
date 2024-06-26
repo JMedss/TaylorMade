@@ -1,80 +1,80 @@
 "use client"
 import Image from "next/image"
-import { useEffect, useState } from "react"
-import { useTheme } from "next-themes"
-import { useRouter } from "next/navigation"
+import { useState, useEffect, use } from "react"
+import { useRouter, usePathname } from "next/navigation"
 
 const Logo = () => {
+    // State for the current window width
+    const [width, setWidth] = useState()
 
-    const router = useRouter()
-    const { theme, setTheme } = useTheme()
-
-    const [logo, setLogo] = useState({
-        light: "",
-        dark: "",
-        alt: ""
-    })
-    
-    const [location, setLocation] = useState("")
-    const [currentUrl, setCurrentUrl] = useState("")
-    const locations = {
-        johnsoncity: {
-            light: "/newlogo.svg",
-            dark: "/newlogowhite.svg",
-            alt: "Taylor-Made Barber Shop logo"
-        },
-        greeneville: {
-            light: "/groomingloungedarklogo.png",
-            dark: "/groomingloungelightlogo.png",
-            alt: "Taylor-Made Grooming Lounge logo"
-        }
-    }
-
+    // State for logo size
+    const [logoSize, setLogoSize] = useState(0)
 
     useEffect(() => {
-        setCurrentUrl(window.location.href)
-        const jcExists = currentUrl.indexOf("johnsoncitybarbershop") !== -1
-        const greenevilleExists = currentUrl.indexOf("greenevillebarbershop") !== -1
-        
-        if(jcExists) {
+        const handleResize = () => setWidth(window.innerWidth)
+
+        // Set initial width on mount
+        handleResize()
+
+        // Add event listener
+        window.addEventListener("resize", handleResize)
+
+        // Remove event listener on cleanup
+        return () => window.removeEventListener("resize", handleResize)
+    }, [])
+
+
+
+    // Function to push to the home page
+    const router = useRouter()
+
+    const handleLogoClick = () => {
+        router.push("/")
+    }
+
+    const currentPath = usePathname()
+
+   useEffect(() => {
+    const gvExists = currentPath.indexOf("/greenevillebarbershop")
+    
+    if(width < 640 && gvExists !== -1) {
+        setLogoSize(150)
+    } else if(width > 640 && gvExists !== -1) {
+        setLogoSize(175)
+    } else if(width < 640) {
+        setLogoSize(60) 
+    } else {
+        setLogoSize(80)
+    }
+   }, [width, currentPath])
+
+   // Get the current pathname to determine logo
+    const [logo, setLogo] = useState({
+        src: "",
+        alt: ""
+    })
+
+    const gvExists = currentPath.indexOf("/greenevillebarbershop")
+    useEffect(() => {
+
+        if(gvExists !== -1) {
             setLogo({
-                light: locations.johnsoncity.light,
-                dark: locations.johnsoncity.dark,
-                alt: locations.johnsoncity.alt
+                src: "/groomingloungedarklogo.png",
+                alt: "Taylor-Made Grooming Lounge Logo"
             })
-            setLocation("Johnson City")
-        } else if(greenevilleExists) {
-            setLogo({
-                light: locations.greeneville.light,
-                dark: locations.greeneville.dark,
-                alt: locations.greeneville.alt
-            })
-            setLocation("Greeneville")
         } else {
             setLogo({
-                light: locations.johnsoncity.light,
-                dark: locations.johnsoncity.dark,
-                alt: locations.johnsoncity.alt
+                src: "/newlogo.svg",
+                alt: "Taylor-Made Barber Shop Logo"
             })
-            setLocation("Johnson City")
         }
-    }, [locations.greeneville.dark, locations.greeneville.light, locations.greeneville.alt, locations.johnsoncity.dark, locations.johnsoncity.light, locations.johnsoncity.alt, currentUrl])
-
-
+    }, [currentPath])
   return (
-    <button 
-    className="logo-wrapper"
-    onClick={() => router.push("/") }
-    >
-      <Image 
-      className={location === "Johnson City" ? "" : "ml-0 min-w-[150px]" }
-      src={theme === "dark" ? logo.dark : logo.light }
-      width={location === "Johnson City" ? 60 : 150}
-      height={10}
-      alt={logo.alt}
-      priority
-      />
-    </button>
+    <div className="flex items-center">
+        <button onClick={handleLogoClick} className={gvExists !== -1 ? "flex items-center justify-center mt-6" : "flex items-center justify-center"}>
+                <Image src={logo.src} alt={logo.alt} width={logoSize} height={logoSize} priority />
+        </button>
+    </div>
   )
 }
 

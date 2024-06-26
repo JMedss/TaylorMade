@@ -5,7 +5,7 @@ const Privacy = () => {
   return (
     <main className='mt-[120px] w-screen h-[180vh]'>
         <section className='container flex flex-col items-center h-full'>
-            <h2 className='my-[60px]'>Privacy Policy</h2>
+            <h2 className='my-[60px] main'>Privacy Policy</h2>
             <div className='flex flex-col h-full'>
               <p>At Taylor-Made, your privacy is of utmost importance to us. We are committed to protecting and respecting your personal information. This Privacy Policy outlines how we collect, use, and protect your data.</p>
               <h4 className='mt-12'>Information We Collect and Use</h4>

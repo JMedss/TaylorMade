@@ -7,14 +7,14 @@ const Portfolio = (props) => {
     
  
   return (
-    <section className='min-w-[300px] bg-white dark:bg-darkprimary p-4'>
-        <div className='flex flex-col items-start container'>
-            <h2 className='mt-[120px]'>The <span className='abrilh2'>Barbers</span> At Work</h2>
-            <div className='slider-wrapper w-full'>
-                <Slider images={[images]} />
-            </div>
+    <section className='min-w-[300px] p-4'>
+        <div className='flex flex-col items-center container gap-16'>
+            <h2 className='pt-[120px] text-[#FFFAFA] main text-center'>The Barbers At Work</h2>
+            <div className='w-full h-[250px] sm:h-[300px] md:h-[450px] lg:h-[500px] xl:h-[600px]'>
+                <Slider images={images} />
+            </div> 
         </div>
-    </section>
+    </section> 
   )
 }
 

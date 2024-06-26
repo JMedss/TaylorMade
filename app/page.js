@@ -2,10 +2,10 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { useRouter } from "next/navigation"
-import HomeHero from "./components/hero/HomeHero"
 import VideoSection from "./components/videosection/VideoSection"
 import Features from "./components/features/Features"
 import CTA from "./components/cta/CTA"
+import Hero from "./components/hero/Hero"
 
 
 
@@ -51,6 +51,7 @@ export default function Home() {
       })
       .then(function(response) {
         const results = response.data.results
+        if(results.length > 0) {
         const userAddress = results[0].formatted_address
         const jcExists = userAddress.indexOf("Johnson City")
         const gvExists = userAddress.indexOf("Greeneville")
@@ -60,18 +61,24 @@ export default function Home() {
         } else if (gvExists !== -1) {
           sessionStorage.setItem("redirected", "true")
           router.push("/greenevillebarbershop")
+        } else {
+          console.log("No locations found")
         }
+      }
+      })
+      .catch(function(error) {
+        console.log("Error fetching address:", error.message)
       })
     } 
   }, [userLocation, router])
 
    
     return (
-      <main>
-        <HomeHero />
+      <main> 
+        <Hero />   
         <VideoSection />
-        <Features cta="VIEW LOCATIONS" href="/locations" location="johnsoncity"/>
-        <CTA  cta="VIEW LOCATIONS" href="/locations" src="/ctavideo.mp4"/>
+        <Features />
+        <CTA  /> 
       </main>
   ) 
 } 

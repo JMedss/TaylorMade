@@ -1,7 +1,5 @@
 "use client"
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import FeaturesStars from '../features/FeaturesStars';
 import TestimonialStars from './TestimonialStars';
 
 const Testimonials = (props) => {
@@ -19,10 +17,10 @@ const Testimonials = (props) => {
 
 
   return (
-    <section className="bg-[#151414] w-full h-[500px] p-4">
+    <section className="w-full h-[500px] lg:h-[600px] p-4 mt-24 text-center">
         <div className="container min-w-[300px]">
             <div className="flex flex-col items-center justify-around h-full"> 
-                <h2 className='text-white text-center mt-[60px]'>What Our <span className="abrilh2">Clients</span> Are Saying:</h2>
+                <h2 className='text-white mt-[60px] main'>What Our <span className="abrilh2">Clients</span> Are Saying:</h2>
                   <div className='flex flex-col items-center gap-2 mt-10'>
                     <h4 className='text-white'>{props.reviews[0][currentIndex].name}</h4>
                     <TestimonialStars />

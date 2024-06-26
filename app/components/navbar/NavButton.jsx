@@ -1,31 +1,31 @@
 "use client"
 import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
 
 
 const NavButton = () => {
+
 const [button, setButton] = useState({
     text: "",
     href: ""
 })
-
     const router = useRouter()
+    const path = usePathname()
+
+    
     useEffect(() => {
-        const currentUrl = window.location.href
-        // CHANGE BEFORE PRODUCTION
-        //Checkng if they are on the homepage.
-        const jcExists = currentUrl.indexOf("johnsoncitybarbershop")
-        const gvExists = currentUrl.indexOf("greenevillebarbershop")
+        const jcExists = path.indexOf("/johnsoncitybarbershop")
+        const gvExists = path.indexOf("/greenevillebarbershop")
 
         if(jcExists !== -1) {
             setButton({
-                text: "BOOK HAIRCUT",
+                text: "FRESHEN UP",
                 href: "/johnsoncitybarbershop/barbers"
             })
         } else if (gvExists !== -1) {
             setButton({
-                text: "BOOK HAIRCUT",
+                text: "FRESHEN UP",
                 href: "/greenevillebarbershop/barbers"
             }) 
         } else {
@@ -35,7 +35,7 @@ const [button, setButton] = useState({
             })
         }
         
-    },[])
+    },[path])
 
 
     const handleClick = (e) => {
@@ -45,7 +45,7 @@ const [button, setButton] = useState({
   return (
         <button 
         onClick={handleClick}
-        className="outline-black dark:outline-white w-full p-1 md:p-2 bg-redprimary text-white hover:bg-redprimary/80 hover:transition-all transition-all">
+        className="min-w-[150px] xl:min-w-[180px] font-bold text-[18px] w-full p-2 xl:text-[22px] xl:p-3 border border-redprimary text-redprimary hover:bg-redprimary hover:text-[#FFFAFA] transition-colors duration-1000 ease-in-out">
             {button.text}
         </button>
   )

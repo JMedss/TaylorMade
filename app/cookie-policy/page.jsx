@@ -4,7 +4,7 @@ const Cookie = () => {
   return (
     <main className='mt-[120px]'>
         <section className='container flex flex-col items-center'>
-            <h2 className='my-[60px]'>Cookie Policy</h2>
+            <h2 className='my-[60px] main'>Cookie Policy</h2>
             <div>
               <p>At Taylor-Made, your privacy is of utmost importance to us. We are committed to protecting and respecting your personal information. This Cookie Policy outlines how we collect, use, and protect your data.</p>
               <h4 className='mt-12'>What are Cookies?</h4>

@@ -1,31 +1,55 @@
-import Image from "next/image"
+"use client"
+import { useState } from "react";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 const FAQ = (props) => {
-    let questions = props.questions[0]
-  return (
-    <section className='bg-white dark:bg-darkprimary relative min-h-[150vh] py-[120px]'>
-        <div className='img-wrapper absolute z-10 top-[55%] left-[50%] translate-x-[-50%] translate-y-[-50%] hidden lg:block'>
-            <Image 
-            src="/barbertools.png"
-            height={1000}
-            width={2000}
-            alt=""
-            />
-        </div>
-        <div className="container flex flex-col items-center">
-            <h2 className="text-center z-20 mb-[120px]">The <span className="abrilh2 z-20">Barber Shops</span> Frequently Asked Questions</h2>
-            <div className="card-wrapper w-[100%] m-auto bg-black/50 shadow-lg flex flex-col py-12 px-6 lg:relative lg:z-20 lg:w-[60%]">
-                {questions.map((question) => (
-                    <div key={question.id} className="flex flex-col gap-4">
-                        <h4 className="text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px]">{question.question}</h4>
-                        <p className="text-white md:text-[16px]">{question.answer}</p>
-                    <div className="bg-redprimary h-[1px] w-full my-4" />
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section> 
-  )
-}
+  const questions = props.questions[0];
+  const [activeIndex, setActiveIndex] = useState(null);
 
-export default FAQ
+  const handleOpen = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  return (
+    <section className="bg-[#FFFAFA] w-screen pt-[150px]">
+      <div className="flex flex-col container items-center">
+        <div className="flex flex-col">
+          <h2 className="main">FREQUENTLY ASKED QUESTIONS</h2>
+          <h3 className="subheading">Give Us A Call If You Have Any More Questions</h3>
+        </div>
+      </div>
+
+      <div className="w-full flex flex-col mt-24 sm:container">
+        <div className="flex flex-col">
+          {questions.map((question, i) => (
+            <div key={question.id} className="flex flex-col">
+              <hr className="border-t-1 border-black" />
+              <div className="flex items-center justify-between container py-4 h-[90px]">
+                <h3 className="max-w-[80%]">{question.question}</h3>
+                <button onClick={() => handleOpen(i)} className="flex items-center">
+                  {activeIndex === i ? (
+                    <FaMinus size={30} className="mr-2 hover:scale-125 transition duration-300 ease-in-out" />
+                  ) : (
+                    <FaPlus size={30} className="mr-2 hover:scale-125 transition duration-300 ease-in-out" />
+                  )}
+                </button>
+              </div>
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  activeIndex === i ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="container py-4">
+                  <p>{question.answer}</p>
+                </div>
+              </div>
+              <hr className={i === questions.length - 1 ? "border-t-1 border-black" : "hidden"} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FAQ;

@@ -1,17 +1,56 @@
 "use client"
-import { useTheme } from "next-themes"
-import Qaulity from "./Qaulity"
+import Image from "next/image"
+import { usePathname } from "next/navigation"
+import { useState, useEffect} from "react"
 
 
 const Mobile = () => {
-const { theme, setTheme } = useTheme()
+  // Check path to set barber shop name
+  const path = usePathname()
+  const [barberShop, setBarberShop] = useState("")
+
+
+  useEffect(() => {
+    const gvExists = path.indexOf("greeneville")
+    if(gvExists !== -1) {
+      setBarberShop("TAYLOR-MADE GROOMING LOUNGE")
+    } else {
+      setBarberShop("TAYLOR-MADE BARBER SHOP")
+    }
+  },[path])
+
 
   return (
-    <div className='md:hidden absolute top-[120px] -z-50 min-w-[300px]'>
-      <video autoPlay muted loop playsInline className="relative">
-          <source type="video/mp4" src={theme === "light" ? "/taylormadelightmode.mp4" : "/taylormadedarkmode.mp4" } />
-        </video>
-        <div className="absolute inset-0 bg-[#F3F1F1]/70 dark:bg-darkprimary/70" />
+    <div className='md:hidden flex flex-col items-center w-full mt-section'>
+      {/* Top Line */}
+      <div className="flex items-center w-full">
+        <hr className="w-full border-1 border-black"/>
+        <Image className="mr-1" src="/scissorsicon.svg" width={20} height={20} />
+        <span className="sm:text-[18px] whitespace-nowrap mx-1">{barberShop}</span>
+        <Image className="ml-1" src="/scissorsicon.svg" width={20} height={20} />
+        <hr className="w-full border-1 border-black"/>
+      </div>
+
+      {/* Words */}
+        <div className="flex items-center justify-center w-full">
+          <div className="sentences flex gap-4">
+            <div className="sentences-slide flex items-center gap-4">
+                <h2 className="whitespace-nowrap main">FEEL THE <span className="text-[36px] sm:text-[38px] text-redprimary font-abril-fatface">ATMOSPHERE</span> WHEN YOU WALK IN.</h2>
+                <h2 className="whitespace-nowrap main">FIND THE RIGHT BARBER FOR YOUR <span className="text-[36px] sm:text-[38px] text-redprimary font-abril-fatface">HAIR STYLE.</span></h2>
+                <h2 className="whitespace-nowrap main">BOOK ONLINE TO <span className="text-[36px] sm:text-[38px] text-redprimary font-abril-fatface">SAVE TIME</span>  AT THE BARBER SHOP.</h2>
+            </div>
+            <div className="sentences-slide flex items-center gap-4">
+                <h2 className="whitespace-nowrap main">FEEL THE <span className="text-[36px] sm:text-[38px] text-redprimary font-abril-fatface">ATMOSPHERE</span> WHEN YOU WALK IN.</h2>
+                <h2 className="whitespace-nowrap main">FIND THE RIGHT BARBER FOR YOUR <span className=":text-[36px] sm:text-[38px] text-redprimary font-abril-fatface">HAIR STYLE.</span></h2>
+                <h2 className="whitespace-nowrap main">BOOK ONLINE TO <span className="text-[36px] sm:text-[38px] text-redprimary font-abril-fatface">SAVE TIME</span>  AT THE BARBER SHOP.</h2>
+            </div>
+          </div>
+        </div>
+
+      {/* Bottom Line */}
+      <div className="flex items-center w-full mb-[80px]">
+        <hr className="w-full border-1 border-black"/>
+      </div>
     </div>
   )
 }

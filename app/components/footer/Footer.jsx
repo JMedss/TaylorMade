@@ -3,10 +3,12 @@ import { useState, useEffect } from "react"
 import Link from 'next/link'
 import { FaFacebookF } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
-
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
     const [location, setLocation] = useState("")
+    const path = usePathname()
+
 
     const locations = {
         johnsoncity: {
@@ -30,10 +32,9 @@ const Footer = () => {
     }
 
     useEffect(() => {
-        const currentUrl = window.location.href
-
-        const jcExists = currentUrl.indexOf("johnsoncitybarbershop") !== -1
-        const greenevilleExists = currentUrl.indexOf("greenevillebarbershop") !== -1
+        const checkPath = () => {
+            const jcExists = path.indexOf("johnsoncitybarbershop") !== -1
+        const greenevilleExists = path.indexOf("greenevillebarbershop") !== -1
 
        if(jcExists) {
             setLocation("Johnson City")
@@ -42,30 +43,35 @@ const Footer = () => {
        } else {
             setLocation("Johnson City")
        }
-    },[]) 
+        }
+
+        checkPath()
+
+        
+    },[path]) 
   return (
-    <footer className='bg-white dark:bg-darkprimary flex flex-col min-w-[300px] py-[60px]'>
+    <footer className='bg-[#FFFAFA] flex flex-col min-w-[300px] pt-[60px]'>
         <div className='h-[1px] w-[80%] m-auto min-w-[300px] dark:bg-white/20 bg-black/20' />
             <div className="flex flex-col items-center md:flex-row py-[40px] w-[80%] m-auto md:items-start md:justify-around">
-                <div className="link-wrapper flex flex-col items-center py-4">
-                    <h5>Contacts</h5>
+                <div className="link-wrapper flex flex-col items-center py-4 font-bold">
+                    <h4>Contacts</h4>
                     <Link aria-label="Get in touch via telephone" className="outline-black dark:outline-redprimary" href={location === "Johnson City" ? locations.johnsoncity.href : locations.greeneville.href }>{ location === "Johnson City" ? locations.johnsoncity.number : locations.greeneville.number }</Link>
                     <Link aria-label="Get in touch via email" className="outline-black dark:outline-redprimary" href={location === "Johnson City" ? locations.johnsoncity.emailHref : locations.greeneville.emailHref }>{ location === "Johnson City" ? locations.johnsoncity.email : locations.greeneville.email }</Link>
                 </div>
                 <div className="icon-wrapper flex flex-col items-center py-4">
-                    <h5>Follow Our Socials</h5>
+                    <h4>Follow Our Socials</h4>
                     <div className="flex">
                         <Link aria-label="Facebook" className="outline-black dark:outline-redprimary" href={location === "Johnson City" ? locations.johnsoncity.fbHref : locations.greeneville.fbHref }><FaFacebookF size={25}/></Link>
                         <Link aria-label="Instagram" className="outline-black dark:outline-redprimary" href={location === "Johnson City" ? locations.johnsoncity.instaHref : locations.greeneville.instaHref }><FaInstagram size={25}/></Link>
                     </div>
                 </div>
-                <div className="link-wrapper flex flex-col items-center py-4">
-                    <h5>Pages</h5>
-                    <Link className="outline-black dark:outline-redprimary" href="/locations">Locations</Link>
-                    <Link className="outline-black dark:outline-redprimary" href="/johnsoncitybarbershop">Johnson City</Link>
-                    <Link className="outline-black dark:outline-redprimary" href="/greenevillebarbershop">Greeneville</Link>
-                    <Link className="outline-black dark:outline-redprimary" href="/aboutus">About</Link>
-                    <Link className="outline-black dark:outline-redprimary" href="/cookie-policy">Cookies</Link>
+                <div className="link-wrapper flex flex-col items-center py-4 font-bold">
+                    <h4>Pages</h4>
+                    <Link className="outline-black " href="/locations">Locations</Link>
+                    <Link className="outline-black " href="/johnsoncitybarbershop">Johnson City</Link>
+                    <Link className="outline-black " href="/greenevillebarbershop">Greeneville</Link>
+                    <Link className="outline-black " href="/aboutus">About</Link>
+                    <Link className="outline-black " href="/cookie-policy">Cookies</Link>
 
                 </div>
             </div>
@@ -74,12 +80,12 @@ const Footer = () => {
             <span>
                 <p className="footerLinks">
                     &copy; {location === "Johnson City" ? locations.johnsoncity.name : locations.greeneville.name} |
-                    <Link className="outline-black dark:outline-redprimary" href="/privacy"> Privacy</Link> |
-                    <Link className="outline-black dark:outline-redprimary" href="/accessibility"> Accessibility</Link>
+                    <Link className="outline-black" href="/privacy"> Privacy</Link> |
+                    <Link className="outline-black" href="/accessibility"> Accessibility</Link>
                 </p>   
             </span>
             <span>
-                <Link className="outline-black dark:outline-redprimary" href="https://www.newgendigitalmedia.com"><p className="footerLinks">Website Powered By: NewGen Digital Media</p></Link>
+                <Link className="outline-black" href="https://www.newgendigitalmedia.com"><p className="footerLinks">Website Powered By: NewGen Digital Media</p></Link>
             </span>
         </div>
     </footer>

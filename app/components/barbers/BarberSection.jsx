@@ -10,39 +10,56 @@ import { useTheme } from "next-themes"
 
 
 const BarberSection = (props) => {
-    const { theme, setTheme } = useTheme()
     const location = props.location
     const [noBarbers, setNoBarbers] = useState(true)
-    const [barberSelected, setBarberSelected] = useState(false)
-    const [selectedBarberId, setSelectedBarberId] = useState()
+
     const [activeBarbers, setActiveBarbers] = useState()
     const barbers = props.barbers
+
+    // Get date for micah
+    const today = new Date()
+    const day = today.getDay()
+    const [micah, setMicah] = useState(true)
 
     useEffect(() => {
         if (barbers.length > 0) {
             setNoBarbers(false)
-            const filteredBarbers = barbers.filter(barber => barber.location === location)
+            let filteredBarbers = barbers.filter(barber => barber.location === location)
+
+            if (location === "Greeneville" && (day === 4 || day === 5 || day === 6)) {
+                filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Micah Taylor")
+            }
+
             setActiveBarbers(filteredBarbers)
         }
-    }, [barbers, location])
+    }, [barbers, location, day])
 
-    const handleBarberSelected = (barberId) => {
-        setBarberSelected(true)
-        setSelectedBarberId(barberId)
-    }
     console.log("activeBarbers", activeBarbers) 
+
+
+
+    useEffect(() => {
+        if(location === "Greeneville") {
+            if (day === 4 || day === 5 || day === 6) {
+                setMicah(false)
+            }
+        } else {
+            setMicah(true)
+        }
+    }, [])
+
   return (
-    <div className={`${noBarbers ? "hidden" : "flex" } flex-col items-center`}>
-            <h2 className="my-[60px]">Meet The <span className="abrilh2">Barbers</span></h2>
+    <div className={`${noBarbers ? "hidden" : "flex" } flex-col items-center bg-[#FFFAFA] pt-[150px] pb-[50px]`}>
+            <h2 className="main mb-24">Meet The Barbers</h2>
         <div className="container flex flex-wrap items-center justify-center gap-8">
             {activeBarbers && activeBarbers.map((barber) => (
-                <div key={barber.id} className="bg-[#E8E8E8] dark:bg-[#181717] flex flex-col w-full p-2 min-w-[340px] max-w-[450px] shadow-xl shadow-black/40 dark:shadow-black">
+                <div key={barber.id} className= "bg-[#E8E8E8] dark:bg-[#181717] flex flex-col w-full p-2 min-w-[340px] max-w-[450px] shadow-xl shadow-black/40 dark:shadow-black">
                     <div className="flex flex-col justify-center w-full">
                         <div className="flex items-center w-full justify-center">
                             <div className="bg-black dark:bg-white h-[1px] w-[25%]"/>
                             <Image
                             className="mx-1"
-                            src={theme === "dark" ? "/scissorsiconwhite.svg" : "/scissorsicon.svg"}
+                            src="/scissorsicon.svg"
                             width={8}
                             height={8}
                             alt="scissors icon"
@@ -51,7 +68,7 @@ const BarberSection = (props) => {
                             <p className="text-center text-[12px]">{location === "Johnson City" ? "TAYLOR-MADE BARBER SHOP" : "TAYLOR-MADE GROOMING LOUNGE"}</p>
                             <Image
                             className="mx-1"
-                            src={theme === "dark" ? "/scissorsiconwhite.svg" : "/scissorsicon.svg"}
+                            src="/scissorsicon.svg"
                             width={8}
                             height={8}
                             alt="scissors icon"
@@ -70,7 +87,7 @@ const BarberSection = (props) => {
                             <p className="text-center text-[12px]">{location === "Johnson City" ? "817 WEST WALNUT ST. SUITE #7" : "907 ERWIN HWY"}</p>
                             <Image
                             className="mx-1"
-                            src={theme === "dark" ? "/barberchairiconwhite.svg" : "/barberchairicon.svg"}
+                            src="/barberchairicon.svg"
                             width={20}
                             height={20}
                             />

@@ -1,5 +1,4 @@
 import './globals.css'
-import Providers from './components/Providers'
 import LocalizationProviderWrapper from './components/LocalizationProvider'
 import ToasterContext from './context/ToasterContext'
 import Footer from './components/footer/Footer'
@@ -30,18 +29,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <LocalizationProviderWrapper>
-        <body className='dark:bg-darkprimary bg-white overflow-auto'>
-          <Providers>
-            <div className='wrapper'>
-            <CookieBanner />
+        <body>
+          <CookieBanner />
             <ToasterContext />
-            <Navbar />
-              <Provider>
-                {children}
-              </Provider>
-            <Footer />
-            </div>
-          </Providers>
+              <Navbar />
+                <Provider>
+                  {children}
+                </Provider>
+              <Footer />
         </body>
       </LocalizationProviderWrapper>
     </html>

@@ -43,12 +43,12 @@ const CookieBanner = () => {
     if (!isVisible) return null;
 
   return (
-    <div className="fixed z-50 bottom-10 w-[50%] min-w-[220px] left-[50%] translate-x-[-50%] p-4 bg-white dark:bg-darksecondary shadow-2xl dark:shadow-lg shadow-black dark:shadow-redprimary/20">
-        <div className='flex flex-col items-center justify-around md:flex-row'>
-            <p className=''>This website uses <Link href="/cookie-policy" className='text-redprimary'>cookies</Link> to improve user experience.</p>
-            <div className='flex items-center gap-1 my-2 md:flex-col'>
-                <button className='bg-blueprimary border border-blueprimary py-1 w-[100px]' onClick={handleAccept}>Accept</button>
-                <button className='bg-redprimary  border border-redprimary py-1 w-[100px]' onClick={handleReject}>Reject</button>
+    <div className="fixed z-50 bottom-0 w-screen left-0  p-4 blue-gradient ">
+        <div className='flex flex-col container items-center justify-around md:flex-row'>
+            <p className='text-[#FFFAFA] font-bold text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px]'>This website uses <Link href="/cookie-policy" className='font-bold underline cursor-pointer'>cookies</Link> to improve user experience.</p>
+            <div className='w-full max-w-[600px] flex items-center justify-center gap-1 my-2 md:flex-col'>
+                <button className='w-[200px] border border-[#FFFAFA] text-[#FFFAFA] font-bold py-2 hover:bg-[#FFFAFA] hover:text-redprimary transiton-all duration-1000 ease-in-out' onClick={handleAccept}>Accept</button>
+                <button className='w-[200px] border border-redprimary text-redprimary font-bold py-2 hover:text-[#FFFAFA] hover:bg-redprimary transiton-all duration-1000 ease-in-out' onClick={handleReject}>Reject</button>
             </div>
         </div>
     </div>

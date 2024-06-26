@@ -1,23 +1,28 @@
-"use client"
-import { useTheme } from "next-themes"
-import Qaulity from "./Qaulity"
+
 import Mobile from "./Mobile"
-import Desktop from "./Desktop"
+import Slider from "./Slider"
+
 
 
 
 
 const VideoSection = () => {
- 
+
 
   return (
-    <section className="min-h-[850px] flex items-center justify-center">
-        <Mobile />
-        <Desktop />
-        <div>
-          <Qaulity />
+    <div className="">
+      <section className="hidden md:flex bg-black/0 h-[900px]">
+        <div className="fixed top-0 -z-10 w-screen h-screen">
+          <video autoPlay muted loop playsInline className='w-screen h-[850px] object-cover relative'>
+            <source type="video/mp4" src="/taylormadebarbershop.mp4" />
+          </video>
+          <Slider />
         </div>
-    </section>
+      </section>
+      <section className="bg-[#FFFAFA] md:hidden">
+          <Mobile />
+      </section>
+    </div>
   )
 }
 

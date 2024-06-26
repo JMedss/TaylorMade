@@ -18,12 +18,8 @@ const Greeneville = () => {
 
 
  
-  const images = [
-    { id: 1, imgOne: "/img1.jpg", imgTwo: "/img2.jpg", imgThree: "/img3.jpg", imgFour: "/img4.jpg", imgFive: "/img5.jpg" },
-    { id: 2, imgOne: "/img6.jpg", imgTwo: "/img7.jpg", imgThree: "/img8.jpg", imgFour: "/img9.jpg", imgFive: "/img10.jpg" },
-    { id: 3, imgOne: "/img11.jpg", imgTwo: "/img12.jpg", imgThree: "/img13.jpg", imgFour: "/img14.jpg", imgFive: "/img15.jpg" },
-    { id: 4, imgOne: "/img16.jpg", imgTwo: "/img17.jpg", imgThree: "/img18.jpg", imgFour: "/img19.jpg", imgFive: "/img20.jpg" }
-  ]
+      const images = ["/img1.jpg", "/img2.jpg", "/img3.jpg", "/img4.jpg", "/img5.jpg", "/img6.jpg", "/img7.jpg", "/img8.jpg", "/img9.jpg", "/img10.jpg", "/img11.jpg", "/img12.jpg", "/img13.jpg", "/img14.jpg", "/img15.jpg", "/img16.jpg", "/img17.jpg", "/img18.jpg", "/img19.jpg", "/img20.jpg"]
+
   
       const questions = [
         {id: 1, question: "How long is the typical wait for a hair cut?", answer: "Our typical wait time for a haircut varies, but to enhance your convenience, we have implemented a real-time tracker system."},
@@ -50,13 +46,14 @@ const Greeneville = () => {
 
   return (
     <main> 
-    <Hero subtitle="Greeneville Barber Shop" city="Greenevilles" barbers={["/barber1.png", "/barber2.png", "/barber3.png", "/barber4.png"]} urls={urls}/>
+    <Hero />
     <VideoSection />
     <Features cta="BOOK HAIRCUT" href="/greenevillebarbershop/barbers" location="greeneville"/> 
-    <Benefits />
     <BarbersMain location="Greeneville"/>
-    <Portfolio images={[images]}/>
+    <div className="flex flex-col w-screen blue-gradient">
+    <Portfolio images={images}/>
     <Testimonials reviews={[gvReviews]} />
+    </div>
     <FAQ questions={[questions]} />
     <CTA  cta="BOOK HAIRCUT" href="/greenevillebarbershop/barbers" src="/ctagroominglounge.mp4"/>
     <Contact position={position} url={url} addr={addr} hours={hours} href="/greenevillebarbershop/barbers"/>
