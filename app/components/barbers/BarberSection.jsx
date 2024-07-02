@@ -18,7 +18,7 @@ const BarberSection = (props) => {
 
     // Get date for micah
     const today = new Date()
-    const day = today.getDay()
+   const day = today.getDay()
     const [micah, setMicah] = useState(true)
 
     useEffect(() => {
@@ -28,13 +28,15 @@ const BarberSection = (props) => {
 
             if (location === "Greeneville" && (day === 4 || day === 5 || day === 6)) {
                 filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Micah Taylor")
+            } else if (location === "Greeneville" && (day === 2 || day === 3 )) {
+                filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Jacques Taylor")
             }
 
             setActiveBarbers(filteredBarbers)
         }
     }, [barbers, location, day])
 
-    console.log("activeBarbers", activeBarbers) 
+    
 
 
 
