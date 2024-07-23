@@ -7,7 +7,8 @@ const Popup = (props) => {
     const [data, setData] = useState({
         name: "",
         link: "",
-        location: "Johnson City"
+        location: "Johnson City",
+        secret: process.env.NEXT_PUBLIC_API_SECRET
     })
     const active = props.state
     const closePopUp = props.closePopUp
@@ -21,7 +22,7 @@ const Popup = (props) => {
         .then(() => toast.success("Barber successfully created"))
         .catch(() => toast.error("An error occured"))
     }
-
+ 
     
 
     const handleNameChange = (e) => {
@@ -34,7 +35,7 @@ const Popup = (props) => {
         setData({ ...data, link: e.target.value });
     }
 
-    console.log(data)
+   
   return (
     <div className={`fixed top-0 left-0 z-40 bg-black/60 w-screen h-screen flex-col items-center justify-center ${active ? "flex" : "hidden"}`}>
         <div className='w-[60%] min-w-[300px] h-[500px] bg-slate-200 shadow-xl flex flex-col items-center mt-40 p-4'>

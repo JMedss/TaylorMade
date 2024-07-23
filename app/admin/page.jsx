@@ -6,9 +6,11 @@ import { signIn, useSession } from "next-auth/react"
 
 
 const Admin = () => {
+
   const [password, setPassword] = useState("")
   const router = useRouter()
   const session = useSession()
+ 
   useEffect(() => {
     if (session?.status === "authenticated") {
       router.push("/admin/add-barbers")
@@ -37,7 +39,6 @@ const Admin = () => {
     if (isValid) {
       setPassword(inputValue);
     }
-    console.log(password)
   }
 
   return (

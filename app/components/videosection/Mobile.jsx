@@ -34,7 +34,7 @@ const Mobile = () => {
       {/* Words */}
         <div className="flex items-center justify-center w-full">
           <div className="sentences flex gap-4">
-            <div className="sentences-slide flex items-center gap-4">
+            <div className="sentences-slide flex items-center gap-4 mr-8">
                 <h2 className="whitespace-nowrap main">FEEL THE <span className="text-[36px] sm:text-[38px] text-redprimary font-abril-fatface">ATMOSPHERE</span> WHEN YOU WALK IN.</h2>
                 <h2 className="whitespace-nowrap main">FIND THE RIGHT BARBER FOR YOUR <span className="text-[36px] sm:text-[38px] text-redprimary font-abril-fatface">HAIR STYLE.</span></h2>
                 <h2 className="whitespace-nowrap main">BOOK ONLINE TO <span className="text-[36px] sm:text-[38px] text-redprimary font-abril-fatface">SAVE TIME</span>  AT THE BARBER SHOP.</h2>
@@ -45,7 +45,7 @@ const Mobile = () => {
                 <h2 className="whitespace-nowrap main">BOOK ONLINE TO <span className="text-[36px] sm:text-[38px] text-redprimary font-abril-fatface">SAVE TIME</span>  AT THE BARBER SHOP.</h2>
             </div>
           </div>
-        </div>
+        </div> 
 
       {/* Bottom Line */}
       <div className="flex items-center w-full mb-[80px]">

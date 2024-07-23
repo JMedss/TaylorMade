@@ -18,7 +18,7 @@ const Slider = () => {
     }, [currentSlide])
 
   return (
-    <div className="bg-[#FFFAFA]/70 shadow-xl shadow-black p-6 lg:p-8 w-[80%] min-w-[300px] max-w-[1200px] h-[200px] lg:h-[225px] absolute z-10 top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 flex-flex-col items-center justify-center">
+    <div className="bg-[#FFFAFA]/70 shadow-xl shadow-black p-6 lg:p-8 w-[80%] min-w-[300px] max-w-[1200px] h-[200px] lg:h-[225px] absolute z-10 top-64 left-1/2 -translate-x-1/2 flex-flex-col items-center justify-center">
         <div className="slider">
             <div className={`slide ${currentSlide === 0 ? "active" : prevSlide === 0 ? "exit" : ""}`}>
                 <h2 className="main m-auto w-[600px] lg:w-[700px]">FEEL THE <span className="font-abril-fatface text-redprimary md:text-[46px] lg:text-[52px]">ATMOSPHERE</span> WHEN YOU WALK IN.</h2>

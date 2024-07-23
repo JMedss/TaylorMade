@@ -30,6 +30,7 @@ const Slider = (props) => {
             alt="=Portfolio Image"
             width={1200}
             height={600}
+            priority
             />
         ))}
         </div>

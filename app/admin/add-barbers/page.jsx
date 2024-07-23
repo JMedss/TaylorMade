@@ -13,7 +13,7 @@ export default function AddBarbers() {
   const [barbers, setBarbers] = useState([])
   const [barber, setBarber] = useState()
 
-
+  console.log(session)
   useEffect(() => {
     if (session?.status === "unauthenticated") {
       router.push("/")

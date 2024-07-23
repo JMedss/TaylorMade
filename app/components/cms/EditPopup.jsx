@@ -113,7 +113,7 @@ const EditPopup = (props) => {
     }
 
 
-   console.log(data)
+   
 
 
 
