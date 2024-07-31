@@ -18,20 +18,23 @@ const BarberSection = (props) => {
 
     // Get date for micah
     const today = new Date()
-   const day = today.getDay()
-    const [micah, setMicah] = useState(true)
+    const day = today.getDay()
+
 
     useEffect(() => {
         if (barbers.length > 0) {
             setNoBarbers(false)
             let filteredBarbers = barbers.filter(barber => barber.location === location)
 
-            if (location === "Greeneville" && (day === 4 || day === 5 || day === 6)) {
+            if (location === "Greeneville" && (day === 4 || day === 5 || day === 6 || day === 1)) {
+                filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Micah Taylor")
+            } else if (location === "Johnson City" && (day === 1 || day === 2 || day === 3)) {
                 filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Micah Taylor")
             } else if (location === "Greeneville" && (day === 2 || day === 3 )) {
                 filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Jacques Taylor")
+            } else if (location === "Johnson City" && (day === 4 || day === 5 || day === 6 )) {
+                filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Jacques Taylor")
             }
-
             setActiveBarbers(filteredBarbers)
         }
     }, [barbers, location, day])
@@ -40,15 +43,6 @@ const BarberSection = (props) => {
 
 
 
-    useEffect(() => {
-        if(location === "Greeneville") {
-            if (day === 4 || day === 5 || day === 6) {
-                setMicah(false)
-            }
-        } else {
-            setMicah(true)
-        }
-    }, [])
 
   return (
     <div className={`${noBarbers ? "hidden" : "flex" } flex-col items-center bg-[#FFFAFA] pt-[150px] pb-[50px]`}>

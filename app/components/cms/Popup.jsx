@@ -8,7 +8,6 @@ const Popup = (props) => {
         name: "",
         link: "",
         location: "Johnson City",
-        secret: process.env.NEXT_PUBLIC_API_SECRET
     })
     const active = props.state
     const closePopUp = props.closePopUp
