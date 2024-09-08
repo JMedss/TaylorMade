@@ -21,7 +21,6 @@ const BarbersMain = (props) => {
     if (!res.ok) {
       throw new Error('Failed to fetch data')
     }
-    console.log("fetching data")
     const data = await res.json()
     setBarbers(data)
   }
@@ -34,7 +33,7 @@ const BarbersMain = (props) => {
 
 
   return (
-    <section id='barbers' className='bg-white dark:bg-darkprimary w-screen h-full relative'>
+    <section id='barbers' className='bg-[#FFFAFA] dark:bg-darkprimary w-screen h-full relative pb-48'>
         <NoBarbers barbers={barbers} location={location}/>
         <BarberSection barbers={barbers} location={location} />
     </section>

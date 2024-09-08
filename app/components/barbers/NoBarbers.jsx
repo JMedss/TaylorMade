@@ -14,7 +14,7 @@ const NoBarbers = (props) => {
           }
         }
     }, [barbers, location, noBarbers])
-    console.log(noBarbers)
+  
   return (
     <div className={`${noBarbers ? "flex" : "hidden"} h-full w-full items-center justify-center bg-[#FFFAFA]`}>
       <h3 className='my-[300px]'>No Barbers Added Yet</h3>

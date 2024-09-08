@@ -46,7 +46,7 @@ const Greeneville = () => {
 
   return (
     <main> 
-    <Hero />
+    <Hero /> 
     <VideoSection />
     <Features cta="BOOK HAIRCUT" href="/greenevillebarbershop/barbers" location="greeneville"/> 
     <BarbersMain location="Greeneville"/>

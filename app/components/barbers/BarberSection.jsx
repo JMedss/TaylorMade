@@ -13,31 +13,50 @@ const BarberSection = (props) => {
     const location = props.location
     const [noBarbers, setNoBarbers] = useState(true)
 
-    const [activeBarbers, setActiveBarbers] = useState()
+    const [activeBarbers, setActiveBarbers] = useState(0)
+    const [day, setDay] = useState()
     const barbers = props.barbers
 
-    // Get date for micah
-    const today = new Date()
-    const day = today.getDay()
+
+
+    useEffect(() => {
+        const date = new Date()
+        const day = date.getDay()
+        setDay(day)
+    }, [])
+
 
 
     useEffect(() => {
         if (barbers.length > 0) {
             setNoBarbers(false)
-            let filteredBarbers = barbers.filter(barber => barber.location === location)
-
-            if (location === "Greeneville" && (day === 4 || day === 5 || day === 6 || day === 1)) {
+            let filteredBarbers = barbers.filter(barber => barber.location === location);
+            
+            // if it's monday, micah and jacques are off
+            if(location === "Johnson City" && day === 1) {
+                filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Micah Taylor" && barber.name !== "Jacques Taylor")
+            }
+            // micah is off tuesday, wednesday at jc
+            if (location === "Johnson City" && (day === 2 || day === 3)) {
                 filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Micah Taylor")
-            } else if (location === "Johnson City" && (day === 1 || day === 2 || day === 3)) {
-                filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Micah Taylor")
-            } else if (location === "Greeneville" && (day === 2 || day === 3 )) {
+            // jacques thursday, friday and saturday at jc    
+            } else if (location === "Johnson City" && (day === 4 || day === 5 || day === 6)) {
                 filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Jacques Taylor")
-            } else if (location === "Johnson City" && (day === 4 || day === 5 || day === 6 )) {
+            
+                // if it's monday, micah and jacques are off
+            } else if(location === "Greeneville" && day === 1) {
+                filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Micah Taylor" && barber.name !== "Jacques Taylor")
+                // micah is off thursday, friday, and saturday at greeneville
+            } else if (location === "Greeneville" && (day === 4 || day === 5 || day === 6)) {
+                filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Micah Taylor")
+            // jacques is off tuesday, wednesday at greeneville
+            } else if (location === "Greeneville" && (day === 2 || day === 3)) {
                 filteredBarbers = filteredBarbers.filter(barber => barber.name !== "Jacques Taylor")
             }
-            setActiveBarbers(filteredBarbers)
+              
+            setActiveBarbers(filteredBarbers);
         }
-    }, [barbers, location, day])
+    }, [location, barbers, day]);
 
     
 

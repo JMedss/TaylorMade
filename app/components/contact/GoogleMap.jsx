@@ -15,10 +15,7 @@ const GoogleMap = (props) => {
     const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
     const mapID = process.env.NEXT_PUBLIC_MAP_ID;
 
-    useEffect(() => {
-      console.log("Google Maps API Key:", key)
-      console.log("Google Maps Map ID:", mapID)
-    }, [key, mapID])
+
 
     const handleOpenNewWindow = () => {
       window.open(url, "_blank");

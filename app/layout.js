@@ -28,6 +28,9 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" suppressHydrationWarning>
+        <meta name="theme-color" content="#BA0810"/>
+      <meta name="msapplication-navbutton-color" content="#BA0810"/>
+      <meta name="apple-mobile-web-app-status-bar-style" content="#BA0810" />
       <LocalizationProviderWrapper>
         <body>
           <CookieBanner />

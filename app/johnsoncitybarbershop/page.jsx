@@ -45,7 +45,7 @@ const JohnsonCityBarberShop = () => {
   const addr = "817 West Walnut St. Suite #7 Johnson City, TN 37604"
   const hours = "10AM-5PM"
 
-  return (
+  return ( 
     <main> 
       <Hero />
       <VideoSection />
